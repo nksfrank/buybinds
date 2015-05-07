@@ -1,18 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="contactApp">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="bbApp">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/angular.min.js"></script>
+    <script src="js/angular.js"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/contact.js"></script>
     <title>Send a Contactform with Angular</title>
 </head>
 
 <body>
-    <div class="wrapper" ng-controller="ContactCtrl">
+    <div class="wrapper" ng-controller="BindsCtrl">
         <div class="content box white round">
-            <div id="message" class="alert box round" ng-click="close('message')" ng-show="message">{{message}}</div>
+            <div id="message" class="alert box round" ng-click="close('message')" ng-show="message">{{cmd}}</div>
             <form name="contactForm" ng-submit="contactSend()">
                 <label for="name">Name</label>
                 <input type="text" name="name" class="round" placeholder="John Doe" ng-model="contact.name" ng-class="{ 'error' : err.name }">
