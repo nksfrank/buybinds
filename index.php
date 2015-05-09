@@ -12,7 +12,7 @@
 <body>
     <div class="wrapper" ng-controller="BindsCtrl">
         <div class="content box white round">
-            <div id="message" class="alert box round" ng-click="close('message')" ng-show="message">{{cmd}}</div>
+            <div id="message" class="alert box round"><select><option ng-repeat="item in items" value="{{item.cmd}}">{{item.name}}</option></select></div>
             <form name="contactForm" ng-submit="contactSend()">
                 <label for="name">Name</label>
                 <input type="text" name="name" class="round" placeholder="John Doe" ng-model="contact.name" ng-class="{ 'error' : err.name }">
