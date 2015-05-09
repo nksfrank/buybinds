@@ -95,12 +95,6 @@ div.alert {
         color: #416325;
     }
 
-    div.alert.error {
-        background: #;
-        border: 1px solid #;
-        color: #;
-    }
-
 label {
     padding:0;
     display: block;
@@ -135,7 +129,6 @@ button {
     width: 100%;
     margin: 10px 0;
     padding: 15px 30px 15px 30px;
-    vertical-align: middle;
     border-radius: 6px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 
@@ -229,3 +222,21 @@ input, textarea, button {
     color: #000000;
     background: #FFFFFF;
 }
+
+.numpad {
+}
+    .numpad td {
+        width:50px;
+        height:50px;
+        background:#F4F4F4;
+        
+        text-align: center;
+        border-radius: 6px;
+    }
+        .numpad td.active {
+            width:50px;
+            height:50px;
+            background:#4ebeda;
+            
+            text-align: center;
+        }

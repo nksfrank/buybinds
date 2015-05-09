@@ -54,36 +54,70 @@ var contactApp = angular.module("bbApp", [])
             {name:"MP9", cmd:"weapon_mp9", type:"smg"},
         ];
         
+        /*
+        $scope.numpad = {
+            0: {key:"kp_home", value:"7"},
+            1: {key:"kp_uparrow", value:"8"},
+            2: {key:"kp_pgup", value:"9"},
+            3: {key:"kp_leftarrow", value:"4"},
+            4: {key:"kp_5", value:"5"},
+            5: {key:"kp_rightarrow", value:"6"},
+            6: {key:"kp_end", value:"1"},
+            7: {key:"kp_downarrow", value:"2"},
+            8: {key:"kp_pgdn", value:"3"},
+            9: {key:"kp_ins", value:"0"},
+            10: {key:"kp_del", value:","},
+            11: {key:"kp_enter", value:"Enter"},
+            12: {key:"kp_slash", value:"/"},
+            13: {key:"kp_multiply", value:"*"},
+            14: {key:"kp_minus", value:"-"},
+            15: {key:"kp_plus", value:"+"},
+            };
+        */
+        
         $scope.numpad = [
-            0 = {key:"kp_home", value:"7"},
-            1 = {key:"kp_uparrow", value:"8"},
-            2 = {key:"kp_pgup", value:"9"},
-            3 = {key:"kp_leftarrow", value:"4"},
-            4 = {key:"kp_5", value:"5"},
-            5 = {key:"kp_rightarrow", value:"6"},
-            6 = {key:"kp_end", value:"1"},
-            7 = {key:"kp_downarrow", value:"2"},
-            8 = {key:"kp_pgdn", value:"3"},
-            9 = {key:"kp_ins", value:"0"},
-            10 = {key:"kp_del", value:","},
-            11 = {key:"kp_enter", value:"Enter"},
-            12 = {key:"kp_slash", value:"/"},
-            13 = {key:"kp_multiply", value:"*"},
-            14 = {key:"kp_minus", value:"-"},
-            15 = {key:"kp_plus", value:"+"},
+            [
+                {value:"Num Lock"},
+                {key:"kp_slash", value:"/"},
+                {key:"kp_multiply", value:"*"},
+                {key:"kp_minus", value:"-"},
+            ],
+            [
+                {key:"kp_home", value:"7"},
+                {key:"kp_uparrow", value:"8"},
+                {key:"kp_pgup", value:"9"},
+                {key:"kp_plus", value:"+", rowspan:2},
+            ],
+            [
+                {key:"kp_leftarrow", value:"4"},
+                {key:"kp_5", value:"5"},
+                {key:"kp_rightarrow", value:"6"},
+            ],
+            [
+                {key:"kp_end", value:"1"},
+                {key:"kp_downarrow", value:"2"},
+                {key:"kp_pgdn", value:"3"},
+                {key:"kp_enter", value:"Enter", rowspan:2},
+            ],
+            [
+                {key:"kp_ins", value:"0", colspan:2},
+                {key:"kp_del", value:","},
+            ],
         ];
         
-        $scope.numpadlayout = [
-            [,12,13,14],
-            [0,1,2,15],
-            [3,4,5,15],
-            [6,7,8,11],
-            [9,9,10,11]
-        ];
+        $scope.key;
+        
+        $scope.active = function(row) {
+            console.log(row.key);
+            $scope.key = row.key;
+        };
+        $scope.isSelected = function(row) {
+            return $scope.key === row.key;
+        };
     }]);
 
 $(function() {
-    $(":input").on("keydown change", function() {
-        $(this).removeClass("error");
+    $("td").on("keydown change", function() {
+        console.log("woop");
     });
 });
