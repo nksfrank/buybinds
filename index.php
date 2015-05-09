@@ -16,14 +16,14 @@
                 <select><option ng-repeat="item in items" value="{{item.cmd}}">{{item.name}}</option></select>
             </div>
             <div class="clearfix">
-                <div class="fl">
+                <div class="left">
                     <table class="numpad">
                         <tr ng-repeat="row in numpad">
                             <td ng-class="{active : isSelected(key)}" ng-repeat="key in row" ng-click="active(key)" colspan="{{key.colspan}}" rowspan="{{key.rowspan}}">{{key.value}}</td>
                         </tr>
                     </table>
                 </div>
-                <div class="fr">
+                <div class="right">
                     <div ng-repeat="(key, value) in items">
                         <h4>{{key}}</h4>
                         <button ng-repeat="weap in value">{{weap}}"</button>

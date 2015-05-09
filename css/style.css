@@ -148,10 +148,12 @@ input, textarea, button {
 
 
 .left {
-    padding: 0 0 0 2em;
+    display:inline-flex;
+    margin:auto;
+    float:left;
 }
 .right {
-    padding: 0 2em 0 0;
+    float:right;
 }
 
 .center {
