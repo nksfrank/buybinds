@@ -39,9 +39,11 @@ a, a:visited, a:hover, a:active {
 }
 
 .fr {
+    display:inline-block;
     float: right;
 }
 .fl {
+    display:inline-block;
     float: left;
 }
 
