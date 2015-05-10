@@ -54,7 +54,7 @@ div.wrapper {
 }
 
 div.content {
-    width: 900px;
+    width: 1200px;
     margin: 0 auto 25px auto;
 }
 
@@ -149,7 +149,6 @@ input, textarea, button {
 
 .left {
     display:inline-flex;
-    width:250px;
     float:left;
 }
 .right {
@@ -240,17 +239,33 @@ input, textarea, button {
         
         text-align: center;
         border-radius: 6px;
+        cursor: pointer;
     }
-        .numpad td.active {
-            background:#4ebeda;
+        .numpad td:hover {
+            color: #FFF;
+            background: #91E091;
         }
-        
-.tagg {
+        .numpad td:active {
+            color: #FFFFFF;
+            background: #4ec44e;
+        }
+        .numpad td.selected {
+            color: #FFF;
+            background:#99cc99;
+        }
+.item-wrapper {
+  -webkit-column-count: 4;
+     -moz-column-count: 4;
+          column-count: 4;
+}
+.item-header {
+    width:100%;
+    display: inline-table;
+}
+.tags {
+    width:100%;
     margin:2px;
-    padding:3px 12px;
-    display:inline-flex;
+    padding:12px 12px;
+    
     cursor: pointer;
 }
-    .tagg input[type="checkbox"] {
-        margin-right:4px;
-    }

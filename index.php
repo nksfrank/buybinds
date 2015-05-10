@@ -12,28 +12,25 @@
 
 <body>
     <div class="wrapper" ng-controller="BindsCtrl">
-        <div class="content box white round">
+        <div class="content box white round clearfix">
             <div class="clearfix">
                 <div class="left">
-                    <table class="numpad">
-                        <tr ng-repeat="row in numpad">
-                            <td ng-class="{active : isSelected(key)}" ng-repeat="key in row" ng-click="active(key)" colspan="{{key.colspan}}" rowspan="{{key.rowspan}}">{{key.value}}</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="right">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="round" placeholder="John Doe" ng-model="contact.name" ng-class="{ 'error' : err.name }">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="round" placeholder="John Doe" ng-model="contact.name" ng-class="{ 'error' : err.name }">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="round" placeholder="John Doe" ng-model="contact.name" ng-class="{ 'error' : err.name }">
+                    <div>
+                        <h4>Key</h4>
+                        <table class="numpad">
+                            <tr ng-repeat="row in numpad">
+                                <td ng-class="{selected : isSelected(key)}" ng-repeat="key in row" ng-click="setSelect(key)" colspan="{{key.colspan}}" rowspan="{{key.rowspan}}">{{key.value}}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div ng-repeat="(key, value) in items">
-                <h4>{{key}}</h4>
-                <div class="tagg teal round" ng-repeat="(key, value) in value">
-                    {{key}}
+            <div class="item-wrapper">
+                <div class="item-header" ng-repeat="(key, value) in items">
+                    <h4>{{key}}</h4>
+                    <div class="tags green light round center" ng-repeat="(key, value) in value" ng-click="setBind(value)">
+                        {{key}}
+                    </div>
                 </div>
             </div>
         </div>
