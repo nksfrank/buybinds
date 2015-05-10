@@ -243,13 +243,17 @@ input, textarea, button {
     }
         .numpad td:hover {
             color: #FFF;
-            background: #91E091;
+            background: #91E091 !important;
         }
         .numpad td:active {
             color: #FFFFFF;
-            background: #4ec44e;
+            background: #4ec44e !important;
         }
         .numpad td.selected {
+            color: #FFF;
+            background:#66cc66 !important;
+        }
+        .numpad td.bound {
             color: #FFF;
             background:#99cc99;
         }

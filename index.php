@@ -19,7 +19,7 @@
                         <h4>Key</h4>
                         <table class="numpad">
                             <tr ng-repeat="row in numpad">
-                                <td ng-class="{selected : isSelected(key)}" ng-repeat="key in row" ng-click="setSelect(key)" colspan="{{key.colspan}}" rowspan="{{key.rowspan}}">{{key.value}}</td>
+                                <td ng-class="{ bound : hasBind(key), selected : isSelected(key)}" ng-repeat="key in row" ng-click="setSelect(key)" colspan="{{key.colspan}}" rowspan="{{key.rowspan}}">{{key.value}}</td>
                             </tr>
                         </table>
                     </div>

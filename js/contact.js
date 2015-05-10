@@ -187,21 +187,22 @@ var contactApp = angular.module("bbApp", [])
         
         $scope.setSelect = function(key) {
             if(key.disabled == true) return;
-            console.log(key.key);
             $scope.key = key.key;
         };
+        
         $scope.isSelected = function(key) {
             return $scope.key === key.key;
         };
         
         $scope.hasBind = function(key) {
-            return $scope.binds[key] !== undefined;
+            return key.key in $scope.binds;
         };
         
         $scope.setBind = function(item) {
             if($scope.key == "") throw new Error("A key is required");
-            console.log(item);
-            $scope.binds[$scope.key];
+            if($scope.binds[$scope.key] === undefined)
+                $scope.binds[$scope.key] = [];
+            $scope.binds[$scope.key].push(item);
         };
     }]);
     
