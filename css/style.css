@@ -39,11 +39,9 @@ a, a:visited, a:hover, a:active {
 }
 
 .fr {
-    display:inline-block;
     float: right;
 }
 .fl {
-    display:inline-block;
     float: left;
 }
 
@@ -272,4 +270,8 @@ input, textarea, button {
     padding:12px 12px;
     
     cursor: pointer;
+}
+
+.glyphicon {
+    top: 3px;
 }

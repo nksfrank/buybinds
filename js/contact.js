@@ -4,7 +4,7 @@ var contactApp = angular.module("bbApp", [])
 .controller("BindsCtrl", ['$scope', '$http', '$timeout', '$q',
     function($scope, $http, $timeout, $q) {
         $scope.init = function() {
-        }
+        };
         $scope.items = {
             Gear:
             {
@@ -188,6 +188,7 @@ var contactApp = angular.module("bbApp", [])
         $scope.setSelect = function(key) {
             if(key.disabled == true) return;
             $scope.key = key.key;
+            console.log($scope.binds);
         };
         
         $scope.isSelected = function(key) {
@@ -211,6 +212,8 @@ var contactApp = angular.module("bbApp", [])
         
         $scope.deleteBind = function(i) {
             $scope.binds[$scope.key].splice(i,1);
+            if($scope.binds[$scope.key].length == 0)
+                delete $scope.binds[$scope.key];
         };
     }]);
     

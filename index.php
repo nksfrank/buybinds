@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div ng-show="binds" class="item-header clearfix">
-                <div class="left tags green light round center" ng-repeat="item in getBinds() track by $index" ng-click="deleteBind($index)">{{item}}</span>
+                <div class="left tags green light round center" ng-repeat="item in getBinds() track by $index" ng-click="deleteBind($index)">{{item}}&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></div>
             </div>
             <div class="item-wrapper">
                 <div class="item-header" ng-repeat="(key, value) in items">
