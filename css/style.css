@@ -258,16 +258,16 @@ input, textarea, button {
             background:#99cc99;
         }
 .item-wrapper {
-  -webkit-column-count: 4;
-     -moz-column-count: 4;
-          column-count: 4;
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    display:inline-block;
 }
 .item-header {
     width:100%;
     display: inline-table;
 }
 .tags {
-    width:100%;
     margin:2px;
     padding:12px 12px;
     

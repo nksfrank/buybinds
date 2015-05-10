@@ -198,11 +198,19 @@ var contactApp = angular.module("bbApp", [])
             return key.key in $scope.binds;
         };
         
+        $scope.getBinds = function() {
+            return $scope.binds[$scope.key];
+        };
+        
         $scope.setBind = function(item) {
             if($scope.key == "") throw new Error("A key is required");
             if($scope.binds[$scope.key] === undefined)
                 $scope.binds[$scope.key] = [];
             $scope.binds[$scope.key].push(item);
+        };
+        
+        $scope.deleteBind = function(i) {
+            $scope.binds[$scope.key].splice(i,1);
         };
     }]);
     
