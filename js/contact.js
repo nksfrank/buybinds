@@ -203,6 +203,7 @@ var contactApp = angular.module("bbApp", [])
             ],
         ];
         
+        $scope.cmd = "buy";
         $scope.key =  "";
         $scope.binds = [];
         
@@ -227,13 +228,26 @@ var contactApp = angular.module("bbApp", [])
             if($scope.key == "") throw new Error("A key is required");
             if($scope.binds[$scope.key] === undefined)
                 $scope.binds[$scope.key] = [];
-            $scope.binds[$scope.key].push(item);
+            $scope.binds[$scope.key].push($scope.cmd + " " + item);
         };
         
         $scope.deleteBind = function(i) {
             $scope.binds[$scope.key].splice(i,1);
             if($scope.binds[$scope.key].length == 0)
                 delete $scope.binds[$scope.key];
+        };
+        
+        $scope.genereateBinds = function() {
+            if(Object.keys($scope.binds).length === 0) throw new Error("Must add a bind");
+            var bind = "";
+            for(var key in $scope.binds) {
+                bind += "bind \"" + key + "\" \"";
+                $scope.binds[key].forEach(function x(item) {
+                    bind += item + ";";
+                });
+                bind += "\" " +"\r\n";
+            }
+            $scope.output = bind.trim();
         };
         
         $scope.init();

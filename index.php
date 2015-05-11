@@ -35,7 +35,9 @@
                         {{key}}
                     </div>
                 </div>
+                <div><button ng-click="genereateBinds()">Generate Binds</button></div>
             </div>
+            <textarea ng-model="output"></textarea>
         </div>
     </div>
 </body>
