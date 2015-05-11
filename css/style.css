@@ -233,12 +233,16 @@ input, textarea, button {
     .numpad td {
         width:50px;
         height:50px;
-        background:#F4F4F4;
+        background:#3F3F3F;
+        color:#FFFFFF;
         
         text-align: center;
         border-radius: 6px;
         cursor: pointer;
     }
+        .numpad td.disabled {
+            background: #FFFFFF;
+        }
         .numpad td:hover {
             color: #FFF;
             background: #91E091 !important;

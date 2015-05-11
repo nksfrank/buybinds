@@ -70,6 +70,27 @@ var contactApp = angular.module("bbApp", [])
         
         $scope.numpad = [
             [
+                {key:"esc", value:"Esc"},
+                {key:"f1", value:"F1"},
+                {key:"f2", value:"F2"},
+                {key:"f3", value:"F3"},
+                {key:"f4", value:"F4"},
+                {disabled:true},
+                {key:"f5", value:"F5"},
+                {key:"f6", value:"F6"},
+                {key:"f7", value:"F7"},
+                {key:"f8", value:"F8"},
+                {disabled:true},
+                {key:"f9", value:"F9"},
+                {key:"f10", value:"F10"},
+                {key:"f11", value:"F11"},
+                {key:"f12", value:"F12"},
+                {value:"PrtScn",disabled:true},
+                {value:"Scroll Lock",disabled:true},
+                {value:"Pause Break",disabled:true},
+                {disabled:true, colspan:4}
+            ],
+            [
                 {key:"§", value:"§"},
                 {key:"1", value:"1"},
                 {key:"2", value:"2"},
@@ -141,7 +162,7 @@ var contactApp = angular.module("bbApp", [])
                 {key:"kp_rightarrow", value:"6"},
             ],
             [
-                {key:"shift",value:"Shift"},
+                {key:"_shift",value:"Shift"},
                 {key:"<",value:"<"},
                 {key:"z",value:"Z"},
                 {key:"x",value:"X"},
@@ -153,7 +174,7 @@ var contactApp = angular.module("bbApp", [])
                 {key:",",value:","},
                 {key:".",value:"."},
                 {key:"-",value:"-"},
-                {key:"shift", value:"Shift", colspan:3},
+                {key:"_shift", value:"Shift", colspan:3},
                 
                 {disabled:true},
                 {key:"uparrow",value:"Up"},
@@ -188,7 +209,6 @@ var contactApp = angular.module("bbApp", [])
         $scope.setSelect = function(key) {
             if(key.disabled == true) return;
             $scope.key = key.key;
-            console.log($scope.binds);
         };
         
         $scope.isSelected = function(key) {
@@ -215,6 +235,8 @@ var contactApp = angular.module("bbApp", [])
             if($scope.binds[$scope.key].length == 0)
                 delete $scope.binds[$scope.key];
         };
+        
+        $scope.init();
     }]);
     
 /*
