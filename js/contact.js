@@ -73,7 +73,7 @@ var contactApp = angular.module("bbApp", [])
         
         $scope.numpad = [
             [
-                {key:"esc", value:"Esc"},
+                {key:"esc", value:"Esc",disabled:true},
                 {key:"f1", value:"F1"},
                 {key:"f2", value:"F2"},
                 {key:"f3", value:"F3"},
@@ -89,12 +89,12 @@ var contactApp = angular.module("bbApp", [])
                 {key:"f11", value:"F11"},
                 {key:"f12", value:"F12"},
                 {value:"PrtScn",disabled:true},
-                {value:"Scroll Lock",disabled:true},
-                {value:"Pause Break",disabled:true},
+                {value:"Scroll Lock", value:"scrolllock", disabled:true},
+                {value:"Pause Break", value:"numlock", disabled:true},
                 {disabled:true, colspan:4}
             ],
             [
-                {key:"§", value:"§"},
+                {key:"\\", value:"§"},
                 {key:"1", value:"1"},
                 {key:"2", value:"2"},
                 {key:"3", value:"3"},
@@ -105,12 +105,12 @@ var contactApp = angular.module("bbApp", [])
                 {key:"8", value:"8"},
                 {key:"9", value:"9"},
                 {key:"0", value:"0"},
-                {key:"+", value:"+"},
-                {key:"´", value:"´"},
+                {key:"=", value:"+"},
+                {key:"[", value:"´"},
                 {key:"backspace", value:"Backspace", colspan:2},
                 
-                {key:"home",value:"Home"},
-                {key:"ins",value:"Insert"},
+                {key:"ins",value:"Home"},
+                {key:"home",value:"Insert"},
                 {key:"pgup",value:"Page Up"},
                 
                 {key:"numlock",value:"Num Lock"},
@@ -130,8 +130,8 @@ var contactApp = angular.module("bbApp", [])
                 {key:"i", value:"I"},
                 {key:"o", value:"O"},
                 {key:"p", value:"P"},
-                {key:"å", value:"Å"},
-                {key:"¨", value:"¨"},
+                {key:"]", value:"Å"},
+                {key:"semicolon", value:"¨"},
                 {key:"enter", value:"Enter", colspan:2, rowspan:2},
                 
                 {key:"del",value:"Delete"},
@@ -154,9 +154,9 @@ var contactApp = angular.module("bbApp", [])
                 {key:"j",value:"J"},
                 {key:"k",value:"K"},
                 {key:"l",value:"L"},
-                {key:"ö",value:"Ö"},
-                {key:"ä",value:"Ä"},
-                {key:"'",value:"'"},
+                {key:"semicolon",value:"Ö"},
+                {key:"'",value:"Ä"},
+                {key:"/",value:"'"},
                 
                 {disabled:true, colspan:3},
                 
@@ -166,7 +166,7 @@ var contactApp = angular.module("bbApp", [])
             ],
             [
                 {key:"_shift",value:"Shift"},
-                {key:"<",value:"<"},
+                {value:"|", disabled:true},
                 {key:"z",value:"Z"},
                 {key:"x",value:"X"},
                 {key:"c",value:"C"},
