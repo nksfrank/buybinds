@@ -114,7 +114,7 @@ var contactApp = angular.module("bbApp", [])
                 {key:"pgup",value:"Page Up"},
                 
                 {key:"numlock",value:"Num Lock"},
-                {key:"kp_slash", value:"/"},
+                {key:"-", value:"/"},
                 {key:"kp_multiply", value:"*"},
                 {key:"kp_minus", value:"-"},
             ],
