@@ -113,7 +113,7 @@ var contactApp = angular.module("bbApp", [])
                 {key:"ins",value:"Insert"},
                 {key:"pgup",value:"Page Up"},
                 
-                {key:"numlock",value:"Num Lock", disabled:true},
+                {key:"numlock",value:"Num Lock"},
                 {key:"kp_slash", value:"/"},
                 {key:"kp_multiply", value:"*"},
                 {key:"kp_minus", value:"-"},
