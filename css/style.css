@@ -259,20 +259,18 @@ input, textarea, button {
             color: #FFF;
             background:#99cc99;
         }
-.item-wrapper {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-    display:inline-block;
+
+.item-wrapper .short {
+    width:25% !important;
 }
-.item-header {
-    width:100%;
-    display: inline-table;
+.item {
+    display: inline-block;
+    margin-right:16px;
 }
 .tags {
     margin:2px;
     padding:12px 12px;
-    
+    display:inline-flex;
     cursor: pointer;
 }
 
