@@ -1,15 +1,22 @@
-FROM node:9-alpine as watcher
+FROM node:9-alpine as builder
 
-ENV DIR=/src/app NODE_ENV=production
-
+RUN adduser -S buybinds
 RUN npm install -g browserify watchify
+ARG DIR=/src/app
 
-FROM watcher as builder
+ENV PATH /src/app/node_modules/.bin:$PATH
+
+COPY package.json $DIR/
+RUN chown -R buybinds /src/*
+
+USER buybinds
 WORKDIR $DIR
-
-COPY package*.json $DIR/
 RUN npm install
 
-COPY ./src $DIR/src/
+FROM builder as watcher
 
-CMD watchify --debug src/index.js -o build/bundle.js -v
+COPY ./src $DIR/src/
+COPY ./build $DIR/build/
+
+ENV NODE_ENV=production
+CMD watchify --poll=50 -v -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o build/bundle.js --extension=.jsx
