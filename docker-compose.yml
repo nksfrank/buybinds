@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  buybinds:
+    build: .
+    volumes:
+      - ./src:/src/app/src
+      - ./build:/src/app/build
+      - node_modules:/src/app/node_modules
+
+volumes:
+  node_modules:
