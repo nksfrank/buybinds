@@ -3,6 +3,7 @@ import React from 'react';
 export const Key = ({
   id,
   value,
+  grid,
   disabled,
   isBound,
   onClick
@@ -10,7 +11,7 @@ export const Key = ({
   <button
     className={`key ${id}${disabled ? ' disabled': ''}${isBound ? ' bound' : ''}`}
     onClick={() => !disabled && onClick(id)}
-    style={{'gridArea': id}}
+    style={{'gridArea': grid}}
   >
     {value}
   </button>

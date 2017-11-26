@@ -1,6 +1,6 @@
 
 const keys = [
-  { id: 'tilde', value: '~'},
+  { id: '~', grid: 'tilde'},
   { id: '_1'},
   { id: '_2'},
   { id: '_3'},
@@ -11,8 +11,8 @@ const keys = [
   { id: '_8'},
   { id: '_9'},
   { id: '_0'},
-  { id: 'minus', value: '-'},
-  { id: 'equal', value: '='},
+  { id: '-', grid: 'minus'},
+  { id: '=', grid: 'equal'},
   { id: 'backspace'},
 
   { id: 'tab'},
@@ -26,24 +26,11 @@ const keys = [
   { id: 'i'},
   { id: 'o'},
   { id: 'p'},
-  { id: 'obracket', value: '['},
-  { id: 'cbracket', value: ']'},
+  { id: '[', grid: 'obracket'},
+  { id: ']', grid: 'cbracket'},
   { id: 'enter'},
 
-  { id: 'lshift', value: 'SHIFT'},
-  { id: 'z'},
-  { id: 'x'},
-  { id: 'c'},
-  { id: 'v'},
-  { id: 'b'},
-  { id: 'n'},
-  { id: 'm'},
-  { id: 'colon', value: ','},
-  { id: 'dot', value: '.'},
-  { id: 'dash', value: '-'},
-  { id: 'rshift', value: 'SHIFT'},
-
-  { id: 'caps', value: 'CAPS'},
+  { id: 'capslock', value: 'CAPS'},
   { id: 'a', value: 'A'},
   { id: 's', value: 'S'},
   { id: 'd', value: 'D'},
@@ -53,19 +40,27 @@ const keys = [
   { id: 'j', value: 'J'},
   { id: 'k', value: 'K'},
   { id: 'l', value: 'L'},
-  { id: 'semicolon', value: ';'},
-  { id: 'tick', value: '\''},
+  { id: ';', grid: 'semicolon'},
+  { id: '\'', grid: 'tick'},
 
-  { id: 'lctrl', value: 'CTRL'},
+  { id: 'l_shift', value: 'SHIFT'},
+  { id: 'z'},
+  { id: 'x'},
+  { id: 'c'},
+  { id: 'v'},
+  { id: 'b'},
+  { id: 'n'},
+  { id: 'm'},
+  { id: ',', grid: 'colon'},
+  { id: '.', grid: 'dot'},
+  { id: '/', grid: 'slash'},
+  { id: 'r_shift', value: 'SHIFT'},
+
+  { id: 'l_ctrl', value: 'CTRL'},
   { id: 'alt', value: 'ALT'},
   { id: 'space', value: 'SPACE'},
   { id: 'altgr', value: 'ALT'},
-  { id: 'rctrl', value: 'CTRL'},
-
-  { id: 'uparrow', value: 'Up'},
-  { id: 'leftarrow', value: 'LEFT'},
-  { id: 'downarrow', value: 'DOWN'},
-  { id: 'rightarrow', value: 'RIGHT'},
+  { id: 'r_ctrl', value: 'CTRL'},
 
 
   { id: 'ins', value: 'INSERT'},
@@ -75,6 +70,11 @@ const keys = [
   { id: 'del', value: 'DELETE'},
   { id: 'end', value: 'END'},
   { id: 'pgdn', value: 'PAGE DOWN'},
+
+  { id: 'uparrow', value: 'Up'},
+  { id: 'leftarrow', value: 'LEFT'},
+  { id: 'downarrow', value: 'DOWN'},
+  { id: 'rightarrow', value: 'RIGHT'},
 
 
   { id: 'numlock', value: 'NUM LOCK'},
@@ -101,9 +101,10 @@ const keys = [
 ];
 
 export function mapKeys() {
-  return keys.map(({id, value}) => ({
+  return keys.map(({id, value, grid}) => ({
     id,
     value: value || id.toUpperCase().replace('_', ''),
+    grid: grid || id,
     disabled: false,
     isBound: false
   }))
