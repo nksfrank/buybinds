@@ -7,7 +7,8 @@ export class Keyboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedKeys: []
+      selectedKeys: [],
+      keys: mapKeys()
     }
   }
 
@@ -27,7 +28,7 @@ export class Keyboard extends React.Component {
   render() {
     return (
       <div className="keyboard">
-        {mapKeys().map(key =>
+        {this.state.keys.map(key =>
           <Key
             key={key.id}
             isSelected={this.isSelected(key)}
