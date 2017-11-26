@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Comp from './comp';
+import {Keyboard} from './keyboard';
 
-const App = () => [
-  <div>Now Working</div>,
-  <Comp />
-];
+const App = () => (
+  <div>
+    <div>Now Working</div>
+    <Keyboard />
+  </div>
+);
 
 ReactDOM.render(<App/>, document.getElementById('app'));
