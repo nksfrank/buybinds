@@ -106,6 +106,10 @@ export function mapKeys() {
     value: value || id.toUpperCase().replace('_', ''),
     grid: grid || id,
     disabled: false,
-    isBound: false
+    isBound: false,
+    getKey:() => {
+      const i = id.indexOf('_');
+      return i === -1 ? id : id.substr(i+1);
+    }
   }))
 }
