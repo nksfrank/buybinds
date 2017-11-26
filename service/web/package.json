@@ -1,0 +1,41 @@
+{
+  "name": "buybinds",
+  "version": "2.0.0",
+  "description": "CS GO buy binds keyboard mapper",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "watchify -v -x react -x react-dom -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o public/bundle.js --extension=.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nksfrank/buybinds.git"
+  },
+  "keywords": [
+    "CS",
+    "GO",
+    "counter",
+    "strike",
+    "buy",
+    "binds"
+  ],
+  "author": "nksfrank",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nksfrank/buybinds/issues"
+  },
+  "homepage": "https://github.com/nksfrank/buybinds#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
+    "watchify": "^3.9.0",
+    "browserify": "^14.5.0"
+  },
+  "dependencies": {
+    "react": "16.1.1",
+    "react-dom": "16.1.1",
+    "serve": "^6.4.1"
+  }
+}
