@@ -2,7 +2,6 @@ import React from 'react';
 import {Key} from './key';
 import {mapKeys} from './maps';
 
-const selectedKeys = new Map();
 export class Keyboard extends React.Component {
   constructor(props) {
     super(props);
