@@ -28,7 +28,7 @@ const keys = [
   { id: 'p'},
   { id: '[', grid: 'obracket'},
   { id: ']', grid: 'cbracket'},
-  { id: 'enter'},
+  { id: '\\', grid: 'backslash'},
 
   { id: 'capslock', value: 'CAPS'},
   { id: 'a', value: 'A'},
@@ -42,6 +42,7 @@ const keys = [
   { id: 'l', value: 'L'},
   { id: ';', grid: 'semicolon'},
   { id: '\'', grid: 'tick'},
+  { id: 'enter'},
 
   { id: 'l_shift', value: 'SHIFT'},
   { id: 'z'},

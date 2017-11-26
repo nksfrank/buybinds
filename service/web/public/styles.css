@@ -3,12 +3,12 @@
   grid-template-columns: repeat(21, 3rem [col-start]) 5%;
   grid-template-rows: repeat(6, 3rem [col-start]) 50%;
   grid-template-areas:
-    "esc f1 f2 f3 f4 . f5 f6 f7 f8 . f9 f10 f11 f12 print_screen scroll_lock break . . . ."
-    "tilde _1 _2 _3 _4 _5 _6 _7 _8 _9 _0 minus equal backspace backspace ins home pgup numlock kp_slash kp_multiply kp_minus"
-    "tab q w e r t y u i o p obracket cbracket enter enter del end pgdn kp_home kp_uparrow kp_pgup kp_plus"
-    "capslock a s d f g h j k l semicolon tick pound enter enter . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
-    "l_shift l_shift z x c v b n m colon dot slash r_shift r_shift r_shift . uparrow . kp_end kp_downarrow kp_pgdn kp_enter"
-    "l_ctrl . alt space space space space space space space space altgr . . r_ctrl leftarrow downarrow rightarrow kp_ins kp_ins kp_del kp_enter";
+    "esc f1 f2 f3 f4 . f5 f6 f7 f8 . f9 f10 f11 f12 print_screen scroll_lock break . . . "
+    "tilde _1 _2 _3 _4 _5 _6 _7 _8 _9 _0 minus equal backspace ins home pgup numlock kp_slash kp_multiply kp_minus"
+    "tab q w e r t y u i o p obracket cbracket backslash del end pgdn kp_home kp_uparrow kp_pgup kp_plus"
+    "capslock a s d f g h j k l semicolon tick enter enter . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
+    "l_shift z x c v b n m colon dot slash r_shift r_shift r_shift . uparrow . kp_end kp_downarrow kp_pgdn kp_enter"
+    "l_ctrl . alt space space space space space space space altgr . r_ctrl r_ctrl leftarrow downarrow rightarrow kp_ins kp_ins kp_del kp_enter";
 }
 
 .key {
