@@ -6,10 +6,12 @@ export const Key = ({
   grid,
   disabled,
   isBound,
+  isSelected,
+  getKey,
   onClick
 }) => (
   <button
-    className={`key ${id}${disabled ? ' disabled': ''}${isBound ? ' bound' : ''}`}
+    className={`key ${id}${disabled ? ' disabled': ''}${isBound ? ' bound' : ''}${isSelected ? ' selected': ''}`}
     onClick={() => !disabled && onClick(id)}
     style={{'gridArea': grid}}
   >

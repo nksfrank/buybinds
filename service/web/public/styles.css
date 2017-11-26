@@ -17,3 +17,6 @@
   margin: 0.1rem;
   border-radius: 0.2rem;
 }
+.selected {
+  background: #BADA55;
+}
