@@ -1,10 +1,17 @@
-const Key = ({
-  key,
+import React from 'react';
+
+export const Key = ({
+  id,
   value,
   disabled,
-  select
+  isBound,
+  onClick
 }) => (
-  <button className="" onClick={() => !disabled && select(key)}>
+  <button
+    className={`key ${id}${disabled ? ' disabled': ''}${isBound ? ' bound' : ''}`}
+    onClick={() => !disabled && onClick(id)}
+    style={{'gridArea': id}}
+  >
     {value}
   </button>
 );
