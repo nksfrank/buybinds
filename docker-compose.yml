@@ -1,11 +1,14 @@
 version: "3.3"
 services:
-  buybinds:
-    build: .
+
+  web:
+    container_name: web-service
+    build: ./service/web/
     volumes:
-      - ./src:/src/app/src
-      - ./build:/src/app/build
-      - node_modules:/src/app/node_modules
+      - './service/web/:/src/app'
+      - 'node_modules:/src/app/node_modules'
+    environment:
+      - NODE_ENV=dev
 
 volumes:
   node_modules:
