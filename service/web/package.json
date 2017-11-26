@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "browser-sync start --ss public/ --files public/*", 
     "start": "watchify -v -x react -x react-dom -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o public/bundle.js --extension=.jsx"
   },
   "repository": {
@@ -35,7 +36,6 @@
   },
   "dependencies": {
     "react": "16.1.1",
-    "react-dom": "16.1.1",
-    "serve": "^6.4.1"
+    "react-dom": "16.1.1"
   }
 }
