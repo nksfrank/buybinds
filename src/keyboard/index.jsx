@@ -6,27 +6,20 @@ export class Keyboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      binds: [],
-      selectedKeys: [],
       keys: mapKeys()
     }
-  }
 
-  selectKey(id) {
-    const index =  this.state.selectedKeys.indexOf(id);
-    if(index === -1) {
-      this.setState({selectedKeys: [...this.state.selectedKeys, id]});
-    } else {
-      this.setState({selectedKeys: this.state.selectedKeys.filter(s => s !== id)});
-    }
+    this.isSelected = this.isSelected.bind(this);
+    this.isBound = this.isBound.bind(this);
   }
 
   isSelected({id}) {
-    return this.state.selectedKeys.indexOf(id) > -1;
+    return this.props.selectedKey.id === id;
+    // return this.props.selectedKeys.indexOf(id) > -1;
   }
 
-  isBound({getKey}) {
-    return this.state.binds.indexOf(getKey()) > -1;
+  isBound({id}) {
+    return this.props.binds.some(({key}) => {key === id});
   }
   
   render() {
@@ -37,7 +30,7 @@ export class Keyboard extends React.Component {
             key={key.id}
             isSelected={this.isSelected(key)}
             isBound={this.isBound(key)}
-            onClick={(id) => this.selectKey(id)}
+            onClick={() => this.props.onKeySelect(key)}
             {...key}
           />)}
       </div>);
