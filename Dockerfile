@@ -13,7 +13,7 @@ USER buybinds:buybinds
 WORKDIR $DIR
 RUN npm install
 
-COPY . $DIR/
+COPY service/web $DIR/
 
 ENV NODE_ENV=production
 CMD npm start
