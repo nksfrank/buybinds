@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "browser-sync start --ss public/ --files public/*",
-    "start": "watchify --poll=25 -v -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o dist/bundle.js --extension=.jsx"
+    "start": "watchify --poll=25 -v -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] -t [uglifyify] src/index.jsx -o dist/bundle.js --extension=.jsx"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,14 @@
   },
   "homepage": "https://github.com/nksfrank/buybinds#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babelify": "^8.0.0",
-    "watchify": "^3.9.0",
-    "browserify": "^14.5.0"
+    "babel-core": "~6.26.0",
+    "babel-preset-env": "~1.6.1",
+    "babel-preset-react": "~6.24.1",
+    "babelify": "~8.0.0",
+    "browserify": "~14.5.0",
+    "prettier": "~1.10.2",
+    "uglifyify": "~4.0.5",
+    "watchify": "~3.9.0"
   },
   "dependencies": {
     "react": "16.1.1",
