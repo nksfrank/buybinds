@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "browser-sync start --ss public/ --files public/*",
-    "dev": "watchify --poll=25 -v -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o dist/bundle.js --extension=.jsx",
-    "start": "browserify -t [babelify --presets [env react] --only src] -g [ uglifyify --mangle --compress [ --sequences --dead_code --booleans ] ] src/index.jsx -o dist/bundle.js --extension=.jsx"
+    "dev": "watchify --poll=25 -v -d -t scssify -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o dist/bundle.js --extension=.jsx",
+    "start": "browserify -t scssify -t [babelify --presets [env react] --only src] -g [ uglifyify --mangle --compress [ --sequences --dead_code --booleans ] ] src/index.jsx -o dist/bundle.js --extension=.jsx"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "babelify": "~8.0.0",
     "browserify": "~14.5.0",
     "prettier": "~1.10.2",
+    "scssify": "^3.0.1",
     "uglifyify": "~4.0.5",
     "watchify": "~3.9.0"
   },
