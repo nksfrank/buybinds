@@ -11,9 +11,11 @@ export const Key = ({
   onClick
 }) => (
   <button
-    className={`key ${id}${disabled ? ' disabled': ''}${isBound ? ' bound' : ''}${isSelected ? ' selected': ''}`}
+    className={`key ${id}${disabled ? ' disabled' : ''}${
+      isBound ? ' bound' : ''
+    }${isSelected ? ' selected' : ''}`}
     onClick={() => !disabled && onClick()}
-    style={{'gridArea': grid}}
+    style={{ gridArea: grid }}
   >
     {value}
   </button>
