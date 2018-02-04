@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "browser-sync start --ss public/ --files public/*",
-    "start": "watchify --poll=25 -v -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] -t [uglifyify] src/index.jsx -o dist/bundle.js --extension=.jsx"
+    "dev": "watchify --poll=25 -v -d -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o dist/bundle.js --extension=.jsx",
+    "start": "browserify -t [babelify --presets [env react] --only src] -g [ uglifyify --mangle --compress [ --sequences --dead_code --booleans ] ] src/index.jsx -o dist/bundle.js --extension=.jsx"
   },
   "repository": {
     "type": "git",
