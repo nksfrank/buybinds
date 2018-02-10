@@ -46,11 +46,11 @@ class App extends React.Component {
         <Keyboard>
           {key => (
             <Key
+              {...key}
               key={key.id}
               isSelected={this.isSelected(key)}
               isBound={this.isBound(key)}
               onClick={() => this.onKeySelect(key)}
-              {...key}
             />
           )}
         </Keyboard>

@@ -3,7 +3,7 @@ import { guns } from './guns';
 
 export const Bind = ({ selectedKey, onKeyBind }) => (
   <div>
-    Bind
+    <h3>Bind</h3>
     <div>{selectedKey.getKey && selectedKey.getKey()}</div>
     <div>
       {guns.rifle.map(({ value, bind }) => (
