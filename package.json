@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "browser-sync start --ss dist/ --files dist/*",
-    "dev": "watchify --poll=25 -v -d -t scssify -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o dist/js/bundle.js --extension=.jsx",
-    "start": "browserify -t scssify -t [babelify --presets [env react] --only src] -g [ uglifyify --mangle --compress [ --sequences --dead_code --booleans ] ] src/index.jsx -o dist/js/bundle.js --extension=.jsx"
+    "dev": "watchify --poll=25 -d -t scssify -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o dist/js/bundle.js --extension=.jsx",
+    "start": "browserify src/index.jsx > dist/js/bundle.js",
+    "serve": "serve dist/"
   },
   "repository": {
     "type": "git",
@@ -32,15 +32,29 @@
     "babel-preset-env": "~1.6.1",
     "babel-preset-react": "~6.24.1",
     "babelify": "~8.0.0",
-    "browser-sync": "^2.23.6",
     "browserify": "~14.5.0",
     "prettier": "~1.10.2",
-    "scssify": "^3.0.1",
+    "scssify": "~3.0.1",
+    "serve": "^6.4.9",
     "uglifyify": "~4.0.5",
     "watchify": "~3.9.0"
   },
   "dependencies": {
-    "react": "16.1.1",
-    "react-dom": "16.1.1"
+    "react": "16.2.0",
+    "react-dom": "16.2.0"
+  },
+  "browserify": {
+    "transform": [
+      "scssify",
+      [
+        "babelify",
+        {
+          "presets": [
+            "env",
+            "react"
+          ]
+        }
+      ]
+    ]
   }
 }
