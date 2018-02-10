@@ -26,12 +26,12 @@ class App extends React.Component {
   onKeyBind(bind) {
     this.setState({
       binds: [...this.state.binds, { key: this.state.selectedKey.id, bind }],
-      selectedKey: undefined
+      selectedKey: {}
     });
   }
 
   isSelected({ id }) {
-    return this.state.selectedKey.id === id;
+    return this.state.selectedKey && this.state.selectedKey.id === id;
   }
 
   isBound({ id }) {
