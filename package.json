@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "watchify --poll=25 -d -t scssify -t [babelify --presets [env react] --sourceMapsAbsolute --only src] src/index.jsx -o dist/js/bundle.js --extension=.jsx",
-    "start": "browserify src/index.jsx > dist/js/bundle.js",
+    "dev": "watchify --poll=25 -d src/index.jsx -o dist/js/bundle.js --extension=.jsx",
+    "start": "browserify src/index.jsx > dist/js/bundle.js --extension=.jsx",
     "serve": "serve dist/"
   },
   "repository": {
