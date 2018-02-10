@@ -106,7 +106,6 @@ export function mapKeys() {
     disabled: false,
     isBound: false,
     getKey: () => {
-      return this;
       const i = id.indexOf('_');
       return i === -1 ? id : id.substr(i + 1);
     }
