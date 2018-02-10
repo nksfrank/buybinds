@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Keyboard } from './keyboard/index';
+import { Keyboard, Key } from './keyboard/index';
 import { Bind } from './bind/index';
 
 class App extends React.Component {
@@ -9,23 +9,18 @@ class App extends React.Component {
     this.state = {
       binds: [],
       selectedKey: {}
-      // selectedKeys: []
     };
 
     this.onKeySelect = this.onKeySelect.bind(this);
     this.onKeyBind = this.onKeyBind.bind(this);
+    this.isSelected = this.isSelected.bind(this);
+    this.isBound = this.isBound.bind(this);
   }
 
   onKeySelect(key) {
     this.setState({
       selectedKey: this.state.selectedKey.id === key.id ? {} : key
     });
-    // const index = this.state.selectedKeys.indexOf(id);
-    // if(index === -1) {
-    //   this.setState({selectedKeys: [...this.state.selectedKeys, id]});
-    // } else {
-    //   this.setState({selectedKeys: this.state.selectedKeys.filter(s => s !== id)});
-    // }
   }
 
   onKeyBind(bind) {
@@ -35,10 +30,30 @@ class App extends React.Component {
     });
   }
 
+  isSelected({ id }) {
+    return this.state.selectedKey.id === id;
+  }
+
+  isBound({ id }) {
+    return this.state.binds.some(({ key }) => {
+      return key === id;
+    });
+  }
+
   render() {
     return (
       <div>
-        <Keyboard onKeySelect={this.onKeySelect} {...this.state} />
+        <Keyboard>
+          {key => (
+            <Key
+              key={key.id}
+              isSelected={this.isSelected(key)}
+              isBound={this.isBound(key)}
+              onClick={() => this.onKeySelect(key)}
+              {...key}
+            />
+          )}
+        </Keyboard>
         <Bind {...this.state} onKeyBind={this.onKeyBind} />
       </div>
     );
