@@ -7,38 +7,53 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      binds: [],
+      binds: {},
       selectedKey: {}
     };
-
-    this.onKeySelect = this.onKeySelect.bind(this);
-    this.onKeyBind = this.onKeyBind.bind(this);
-    this.isSelected = this.isSelected.bind(this);
-    this.isBound = this.isBound.bind(this);
   }
 
-  onKeySelect(key) {
+  onKeySelect = key => {
     this.setState({
       selectedKey: this.state.selectedKey.id === key.id ? {} : key
     });
-  }
+  };
 
-  onKeyBind(bind) {
+  onKeyBind = ({ bind }) => {
+    if (
+      (this.state.binds[this.state.selectedKey.id] || []).find(
+        item => item === bind
+      )
+    ) {
+      this.setState({
+        binds: Object.assign({}, this.state.binds, {
+          [this.state.selectedKey.id]: this.state.binds[
+            this.state.selectedKey.id
+          ].filter(item => item !== bind)
+        })
+      });
+      return;
+    }
     this.setState({
-      binds: [...this.state.binds, { key: this.state.selectedKey.id, bind }],
-      selectedKey: {}
+      binds: Object.assign({}, this.state.binds, {
+        [this.state.selectedKey.id]: (
+          this.state.binds[this.state.selectedKey.id] || []
+        ).concat([bind])
+      })
     });
-  }
+  };
 
-  isSelected({ id }) {
+  isSelected = ({ id }) => {
     return this.state.selectedKey && this.state.selectedKey.id === id;
-  }
+  };
 
-  isBound({ id }) {
-    return this.state.binds.some(({ key }) => {
-      return key === id;
-    });
-  }
+  isBoundKey = ({ id }) => {
+    return this.state.binds[id];
+  };
+  isBoundBind = ({ bind }) => {
+    const { binds, selectedKey } = this.state;
+    if (!binds || !selectedKey || !bind) return false;
+    return (binds[selectedKey.id] || []).some(b => b === bind);
+  };
 
   render() {
     return (
@@ -49,12 +64,21 @@ class App extends React.Component {
               {...key}
               key={key.id}
               isSelected={this.isSelected(key)}
-              isBound={this.isBound(key)}
+              isBound={this.isBoundKey(key)}
               onClick={() => this.onKeySelect(key)}
             />
           )}
         </Keyboard>
-        <Bind {...this.state} onKeyBind={this.onKeyBind} />
+        <Bind {...this.state}>
+          {item => (
+            <Key
+              {...item}
+              key={item.bind}
+              isBound={this.isBoundBind(item)}
+              onClick={() => this.onKeyBind(item)}
+            />
+          )}
+        </Bind>
       </div>
     );
   }
