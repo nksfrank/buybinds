@@ -29,6 +29,7 @@
   "homepage": "https://github.com/nksfrank/buybinds#readme",
   "devDependencies": {
     "babel-core": "~6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "~1.6.1",
     "babel-preset-react": "~6.24.1",
     "babelify": "~8.0.0",
@@ -50,8 +51,22 @@
         "babelify",
         {
           "presets": [
-            "env",
+            [
+              "env",
+              {
+                "targets": {
+                  "browsers": [
+                    "last 2 versions",
+                    "safari >= 9"
+                  ]
+                },
+                "useBuiltIns": true
+              }
+            ],
             "react"
+          ],
+          "plugins": [
+            "transform-class-properties"
           ]
         }
       ]
