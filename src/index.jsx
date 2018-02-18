@@ -76,6 +76,7 @@ class App extends React.Component {
               key={item.bind}
               isBound={this.isBoundBind(item)}
               onClick={() => this.onKeyBind(item)}
+              disabled={!this.state.selectedKey.id}
             />
           )}
         </Bind>
