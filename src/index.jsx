@@ -47,7 +47,7 @@ class App extends React.Component {
   };
 
   isBoundKey = ({ id }) => {
-    return this.state.binds[id];
+    return this.state.binds[id] && this.state.binds[id].length > 0;
   };
   isBoundBind = ({ bind }) => {
     const { binds, selectedKey } = this.state;
