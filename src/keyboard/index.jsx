@@ -3,5 +3,5 @@ import { mapKeys } from './maps';
 export * from './key';
 
 export const Keyboard = ({ children }) => (
-  <div className="keyboard">{mapKeys().map(children)}</div>
+  <div className="section keyboard">{mapKeys().map(children)}</div>
 );

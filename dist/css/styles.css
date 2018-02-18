@@ -3,15 +3,52 @@ html {
   font-family: Roboto, Arial, sans-serif;
 }
 body {
+  margin: 0.5rem 0;
   padding: 0;
-  color: #333333;
+  color: #999b9d;
+  background: #1e2222;
   font-size: 1.3rem;
   font-weight: 400;
 }
+button { outline: none; }
+
 .section {
-  max-width: 1000px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: [full-start] minmax(0.5rem, 1fr) [main-start] minmax(0, 1000px) [main-end] minmax(0.5rem, 1fr) [full-end];
+  padding: 0.5rem 0;
 }
+.section > * {
+  grid-column: main;
+}
+.section.blue {
+  background: #171b1e;
+}
+.section.blue h1, .section.blue h2, .section.blue h3 {
+  color: #97b7d1;
+}
+.section.white {
+  background: white;
+}
+.section.white h1, .section.black h2, .section.black h3 {
+  color: #97b7d1
+}
+
+.key {
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  border: none;
+  box-shadow: 0 0 0 1px #999b9d inset;
+  margin: 0.1rem;
+  min-height: 2rem;
+  user-select: none;
+  transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+}
+.key.disabled {
+  color: #fdfdfd;
+  opacity: 0.2;
+}
+
 .keyboard {
   display: grid;
   grid-template-columns: repeat(14, 1fr);
@@ -31,30 +68,48 @@ body {
     "leftarrow downarrow rightarrow . . . . . . . kp_ins kp_ins kp_del kp_enter";
 }
 
-.key {
-  background: white;
-  border: none;
-  box-shadow: 0 0 0 1px rgba(34,36,38,.15) inset;
-  margin: 0.1rem;
-  border-radius: 0.2rem;
-  min-height: 2rem;
-}
 .keyboard .key {
+  background: white;
+  color: #1e2222;
+  border-radius: 0.4rem;
   font-size: 0.8rem;
   min-height: auto;
   word-break: break-all;
 }
-.key.selected { background: #BADA55; }
-.key.bound { background: #FFAA00; }
-.key.disabled {
-  opacity: 0.4;
-  color: rgba(0,0,0,0.6);
+.keyboard .key:hover,
+.keyboard .key:active,
+.keyboard .key.selected:hover,
+.keyboard .key.selected:active,
+.keyboard .key.selected {
+  background: #25a233;
+  color: #fdfdfd;
+  box-shadow: none;
+}
+.equipment .key {
+  color: #ff851b;
+  box-shadow: 0 0 0 1px #ff851b inset;
+}
+.equipment .key.disabled {
+  color: #fdfdfd;
+  box-shadow: 0 0 0 1px #fdfdfd inset;
+}
+.keyboard .key.bound,
+.equipment .key.bound {
+  background: #ff851b;
+  color: white;
+}
+.equipment .key:hover,
+.equipment .key:active {
+  color: #fff;
+  box-shadow: none;
+  background: #ff7701;
 }
 
 .binds {
-  margin-top: 0.85rem;
+  padding-top: 0.85rem;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   grid-auto-flow: row;
   grid-gap: 0.5rem;
   grid-template-areas:
@@ -84,20 +139,10 @@ body {
 .equipment {
   display: grid;
   grid-auto-flow: row;
+  grid-auto-rows: 1fr;
 }
 
 @media (min-width: 480px) {
-  .keyboard {
-    grid-template-columns: repeat(21, 1fr);
-    grid-template-rows: repeat(6, 5rem);
-    grid-template-areas:
-      "esc . f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 . print_screen scroll_lock break . . ."
-      "tilde _1 _2 _3 _4 _5 _6 _7 _8 _9 _0 minus equal backspace ins home pgup numlock kp_slash kp_multiply kp_minus"
-      "tab q w e r t y u i o p obracket cbracket backslash del end pgdn kp_home kp_uparrow kp_pgup kp_plus"
-      "capslock a s d f g h j k l semicolon tick enter enter . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
-      "l_shift z x c v b n m colon dot slash r_shift r_shift r_shift . uparrow . kp_end kp_downarrow kp_pgdn kp_enter"
-      "l_ctrl . alt space space space space space space altgr . . . r_ctrl leftarrow downarrow rightarrow kp_ins kp_ins kp_del kp_enter";
-  }
   .equipment {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -111,6 +156,17 @@ body {
   }
 }
 @media (min-width: 780px) {
+  .keyboard {
+    grid-template-columns: repeat(21, 1fr);
+    grid-template-rows: repeat(6, 5rem);
+    grid-template-areas:
+      "esc . f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 . print_screen scroll_lock break . . ."
+      "tilde _1 _2 _3 _4 _5 _6 _7 _8 _9 _0 minus equal backspace ins home pgup numlock kp_slash kp_multiply kp_minus"
+      "tab q w e r t y u i o p obracket cbracket backslash del end pgdn kp_home kp_uparrow kp_pgup kp_plus"
+      "capslock a s d f g h j k l semicolon tick enter enter . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
+      "l_shift z x c v b n m colon dot slash r_shift r_shift r_shift . uparrow . kp_end kp_downarrow kp_pgdn kp_enter"
+      "l_ctrl . alt space space space space space space altgr . . . r_ctrl leftarrow downarrow rightarrow kp_ins kp_ins kp_del kp_enter";
+  }
   .binds {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:

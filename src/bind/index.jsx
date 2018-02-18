@@ -2,7 +2,7 @@ import React from 'react';
 import { guns } from './guns';
 
 export const Bind = ({ binds, selectedKey, children }) => (
-  <div className="binds">
+  <div className="section binds">
     <div className="bindings">
       <h3>key: {selectedKey.getKey && selectedKey.getKey()}</h3>
     </div>

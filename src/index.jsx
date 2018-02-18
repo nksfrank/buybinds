@@ -57,29 +57,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="section">
-        <Keyboard>
-          {key => (
-            <Key
-              {...key}
-              key={key.id}
-              isSelected={this.isSelected(key)}
-              isBound={this.isBoundKey(key)}
-              onClick={() => this.onKeySelect(key)}
-            />
-          )}
-        </Keyboard>
-        <Bind {...this.state}>
-          {item => (
-            <Key
-              {...item}
-              key={item.bind}
-              isBound={this.isBoundBind(item)}
-              onClick={() => this.onKeyBind(item)}
-              disabled={!this.state.selectedKey.id}
-            />
-          )}
-        </Bind>
+      <div className="main">
+        <div className="section white">
+          <Keyboard key="keyboard">
+            {key => (
+              <Key
+                {...key}
+                key={key.id}
+                isSelected={this.isSelected(key)}
+                isBound={this.isBoundKey(key)}
+                onClick={() => this.onKeySelect(key)}
+              />
+            )}
+          </Keyboard>
+        </div>
+        <div className="section blue">
+          <Bind key="binds" {...this.state}>
+            {item => (
+              <Key
+                {...item}
+                key={item.bind}
+                isBound={this.isBoundBind(item)}
+                onClick={() => this.onKeyBind(item)}
+                disabled={!this.state.selectedKey.id}
+              />
+            )}
+          </Bind>
+        </div>
       </div>
     );
   }
