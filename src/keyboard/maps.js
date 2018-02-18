@@ -119,9 +119,6 @@ export function mapKeys() {
     grid: grid || id,
     disabled: false,
     isBound: false,
-    getKey: () => {
-      const i = id.indexOf('_');
-      return i === -1 ? id : id.substr(i + 1);
-    }
+    getKey: () => (id.indexOf('_') === 0 ? id.substr(1) : id)
   }));
 }

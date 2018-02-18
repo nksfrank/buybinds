@@ -14,20 +14,24 @@ class App extends React.Component {
 
   onKeySelect = key => {
     this.setState({
-      selectedKey: this.state.selectedKey.id === key.id ? {} : key
+      selectedKey:
+        this.state.selectedKey.getKey &&
+        this.state.selectedKey.getKey() === key.getKey()
+          ? {}
+          : key
     });
   };
 
   onKeyBind = ({ bind }) => {
     if (
-      (this.state.binds[this.state.selectedKey.id] || []).find(
+      (this.state.binds[this.state.selectedKey.getKey()] || []).find(
         item => item === bind
       )
     ) {
       this.setState({
         binds: Object.assign({}, this.state.binds, {
-          [this.state.selectedKey.id]: this.state.binds[
-            this.state.selectedKey.id
+          [this.state.selectedKey.getKey()]: this.state.binds[
+            this.state.selectedKey.getKey()
           ].filter(item => item !== bind)
         })
       });
@@ -35,24 +39,26 @@ class App extends React.Component {
     }
     this.setState({
       binds: Object.assign({}, this.state.binds, {
-        [this.state.selectedKey.id]: (
-          this.state.binds[this.state.selectedKey.id] || []
+        [this.state.selectedKey.getKey()]: (
+          this.state.binds[this.state.selectedKey.getKey()] || []
         ).concat([bind])
       })
     });
   };
 
-  isSelected = ({ id }) => {
-    return this.state.selectedKey && this.state.selectedKey.id === id;
-  };
+  isSelected = ({ getKey }) =>
+    this.state.selectedKey.getKey &&
+    this.state.selectedKey.getKey() === getKey();
 
-  isBoundKey = ({ id }) => {
-    return this.state.binds[id] && this.state.binds[id].length > 0;
-  };
+  isBoundKey = ({ getKey }) =>
+    this.state.binds[getKey()] && this.state.binds[getKey()].length > 0;
+
   isBoundBind = ({ bind }) => {
     const { binds, selectedKey } = this.state;
     if (!binds || !selectedKey || !bind) return false;
-    return (binds[selectedKey.id] || []).some(b => b === bind);
+    return ((selectedKey.getKey && binds[selectedKey.getKey()]) || []).some(
+      b => b === bind
+    );
   };
 
   render() {
