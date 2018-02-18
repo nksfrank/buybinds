@@ -12,9 +12,6 @@ const keys = [
   { id: 'f10' },
   { id: 'f11' },
   { id: 'f12' },
-  { id: 'print_screen' },
-  { id: 'scroll_lock' },
-  { id: 'break' },
 
   { id: '~', grid: 'tilde' },
   { id: '_1' },
