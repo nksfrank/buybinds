@@ -3,7 +3,7 @@
   grid-template-columns: repeat(21, 3rem [col-start]) 5%;
   grid-template-rows: repeat(6, 3rem [col-start]) 50%;
   grid-template-areas:
-    "esc f1 f2 f3 f4 . f5 f6 f7 f8 . f9 f10 f11 f12 print_screen scroll_lock break . . . "
+    "esc f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 . print_screen scroll_lock break . . . . "
     "tilde _1 _2 _3 _4 _5 _6 _7 _8 _9 _0 minus equal backspace ins home pgup numlock kp_slash kp_multiply kp_minus"
     "tab q w e r t y u i o p obracket cbracket backslash del end pgdn kp_home kp_uparrow kp_pgup kp_plus"
     "capslock a s d f g h j k l semicolon tick enter enter . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
