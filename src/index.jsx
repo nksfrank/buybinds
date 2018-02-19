@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Keyboard, Key } from './keyboard/index';
 import { Bind } from './bind/index';
-import { Section, Footer } from './layout/index';
+import { Section, Header, Footer } from './layout/index';
 
 class App extends React.Component {
   constructor(props) {
@@ -65,6 +65,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="main">
+        <Header />
         <Section className="white">
           <Keyboard key="keyboard">
             {key => (

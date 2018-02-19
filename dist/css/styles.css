@@ -26,6 +26,22 @@ a {
   text-decoration: none;
 }
 
+footer {
+  display: flex;
+  margin: 2rem 4rem 0;
+  padding: 2rem 0;
+  justify-content: space-between;
+}
+header {
+  display:flex;
+  align-items: center;
+  color: #ff851b;
+  height: 4vw;
+  font-size: 1.5rem;
+  max-height: 5rem;
+  min-height: 2rem;
+}
+
 .section {
   display: grid;
   grid-template-columns: [full-start] minmax(0.5rem, 1fr) [main-start] minmax(0, 1000px) [main-end] minmax(0.5rem, 1fr) [full-end];
@@ -172,6 +188,9 @@ a {
 }
 
 @media (min-width: 480px) {
+  header {
+    font-size: 3vw;
+  }
   .section.blue {
     padding: 2rem 0;
   }
@@ -188,6 +207,9 @@ a {
   }
 }
 @media (min-width: 780px) {
+  header {
+    font-size: 2.5rem;
+  }
   .section.blue {
     padding: 5rem 0;
   }
@@ -209,11 +231,4 @@ a {
       "pistols smg bindings"
       "shotgun  grenade bindings"
   }
-}
-
-.footer {
-  display: flex;
-  margin: 2rem 4rem 0;
-  padding: 2rem 0;
-  justify-content: space-between;
 }
