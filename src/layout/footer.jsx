@@ -6,7 +6,10 @@ export const Footer = ({}) => (
     <footer className="footer">
       <div>
         <h3>Counter-Strike: buy binds</h3>
-        <a href="http://nikz.se">nikz.se</a>
+        <a href="http://nikz.se">nikz.se</a> -
+        <a href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md">
+          Apache License
+        </a>
       </div>
       <a href="https://github.com/nksfrank/buybinds">
         <img src="./github.png" height="20" width="20" />
