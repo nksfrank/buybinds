@@ -12,7 +12,7 @@ export const Footer = ({}) => (
         </a>
       </div>
       <a href="https://github.com/nksfrank/buybinds">
-        <img src="./github.png" height="20" width="20" />
+        <img src="/github.png" height="20" width="20" />
       </a>
     </footer>
   </Section>
