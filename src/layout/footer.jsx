@@ -6,7 +6,7 @@ export const Footer = ({}) => (
     <footer className="footer">
       <div>
         <h3>Counter-Strike: buy binds</h3>
-        <a href="http://nikz.se">nikz.se</a> -
+        <a href="http://nikz.se">nikz.se</a>&nbsp;&ndash;&nbsp;
         <a href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md">
           Apache License
         </a>
