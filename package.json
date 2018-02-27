@@ -1,0 +1,86 @@
+{
+  "name": "buybinds",
+  "version": "2.0.0",
+  "description": "CS GO buy binds keyboard mapper",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "watchify --poll=25 -d src/index.jsx -o dist/js/bundle.js --extension=.jsx",
+    "start": "browserify -g [ envify --NODE_ENV production ] src/index.jsx --extension=.jsx | uglifyjs --compress --mangle > dist/js/bundle.js ",
+    "serve": "serve dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nksfrank/buybinds.git"
+  },
+  "keywords": [
+    "CS",
+    "GO",
+    "counter",
+    "strike",
+    "buy",
+    "binds"
+  ],
+  "author": "nksfrank",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nksfrank/buybinds/issues"
+  },
+  "homepage": "https://github.com/nksfrank/buybinds#readme",
+  "devDependencies": {
+    "babel-core": "~6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "~1.6.1",
+    "babel-preset-react": "~6.24.1",
+    "babelify": "~8.0.0",
+    "browserify": "~14.5.0",
+    "envify": "^4.1.0",
+    "prettier": "~1.10.2",
+    "scssify": "~3.0.1",
+    "serve": "^6.4.9",
+    "uglify-js": "^3.3.12",
+    "uglifyify": "^4.0.5",
+    "watchify": "~3.9.0"
+  },
+  "dependencies": {
+    "react": "16.2.0",
+    "react-dom": "16.2.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "scssify",
+        {
+          "autoInject": true,
+          "sass": {
+            "outputStyle": "compressed"
+          }
+        }
+      ],
+      [
+        "babelify",
+        {
+          "presets": [
+            [
+              "env",
+              {
+                "targets": {
+                  "browsers": [
+                    "last 2 versions",
+                    "safari >= 9"
+                  ]
+                },
+                "useBuiltIns": true
+              }
+            ],
+            "react"
+          ],
+          "plugins": [
+            "transform-class-properties"
+          ]
+        }
+      ],
+      "uglifyify"
+    ]
+  }
+}
