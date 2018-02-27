@@ -46,7 +46,12 @@
   },
   "browserify": {
     "transform": [
-      "scssify",
+      ["scssify", {
+        "autoInject": true,
+        "sass": {
+          "outputStyle": "compressed"
+        }
+      }],
       [
         "babelify",
         {

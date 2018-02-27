@@ -1,0 +1,15 @@
+header {
+  display:flex;
+  align-items: center;
+  color: #ff851b;
+  height: 4vw;
+  font-size: 1.5rem;
+  max-height: 5rem;
+  min-height: 2rem;
+  @media (min-width: 480px) {
+      font-size: 3vw;
+  }
+  @media (min-width: 780px) {
+      font-size: 2.5rem;
+  }
+}

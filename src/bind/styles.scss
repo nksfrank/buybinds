@@ -1,0 +1,93 @@
+.bindings .key,
+.equipment .key {
+  color: #ff851b;
+  box-shadow: 0 0 0 1px #ff851b inset;
+}
+.equipment .key.disabled {
+  color: #fdfdfd;
+  box-shadow: 0 0 0 1px #fdfdfd inset;
+}
+.keyboard .key.bound,
+.equipment .key.bound {
+  background: #ff851b;
+  color: white;
+}
+.bindings .key:hover,
+.bindings .key:active,
+.equipment .key:hover,
+.equipment .key:active {
+  color: #fff;
+  box-shadow: none;
+  background: #ff7701;
+}
+
+.equipment .key { min-height: 3rem;
+}
+.binds {
+  padding-top: 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-auto-flow: row;
+  grid-gap: 0.5rem;
+  grid-template-areas:
+          "bindings"
+          "rifle"
+          "sniper"
+          "pistols"
+          "smg"
+          "shotgun"
+          "equipment"
+          "grenade"
+}
+
+.bindings {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 1px rgba(34,36,38,.15) inset;
+  grid-area: bindings;
+}
+.bindings h3 {
+  margin: 0 0 0.5rem 0;
+}
+.bindings textarea {
+  height: 100%;
+}
+.bindings .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 0.5rem 0;
+}
+
+.equipment {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 480px) {
+  .equipment {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .binds {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+            "rifle sniper"
+            "pistols smg"
+            "shotgun equipment"
+            "grenade bindings"
+  }
+}
+@media (min-width: 780px) {
+  .binds {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+            "rifle sniper equipment"
+            "pistols smg bindings"
+            "shotgun  grenade bindings"
+  }
+}

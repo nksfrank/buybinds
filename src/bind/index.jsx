@@ -1,9 +1,10 @@
 import React from 'react';
 import { guns } from './guns';
 import { Bindings } from './bindings';
+import './styles.scss';
 
 export const Bind = ({ binds, selectedKey, children }) => (
-  <div className="section binds">
+  <div className="binds">
     <Bindings {...{ binds, selectedKey }} />
     {Object.keys(guns).map(type => (
       <div className="bindings" key={type} style={{ gridArea: type }}>

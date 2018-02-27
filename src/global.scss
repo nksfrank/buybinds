@@ -1,0 +1,27 @@
+html {
+  font-size: 10px;
+  font-family: Roboto, Arial, sans-serif;
+}
+body {
+  margin: 0.5rem 0;
+  padding: 0;
+  color: #999b9d;
+  background: #1e2222;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+button { outline: none; }
+
+h1, h2, h3, h4 {
+  margin: 0 0 1rem 0;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+a:hover {
+  color: #617f99;
+}
+a {
+  color: #97b7d1;
+  text-decoration: none;
+}

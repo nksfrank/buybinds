@@ -1,5 +1,6 @@
 import React from 'react';
 import { Section } from './section';
+import './footer.scss';
 
 export const Footer = ({}) => (
   <Section>

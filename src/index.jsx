@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Keyboard, Key } from './keyboard/index';
 import { Bind } from './bind/index';
 import { Section, Header, Footer } from './layout/index';
+import './global.scss';
 
 class App extends React.Component {
   constructor(props) {
