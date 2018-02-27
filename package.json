@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "watchify --poll=25 -d src/index.jsx -o dist/js/bundle.js --extension=.jsx",
-    "start": "browserify src/index.jsx > dist/js/bundle.js --extension=.jsx",
+    "start": "browserify -g [ envify --NODE_ENV production ] src/index.jsx --extension=.jsx | uglifyjs --compress --mangle > dist/js/bundle.js ",
     "serve": "serve dist/"
   },
   "repository": {
@@ -34,10 +34,12 @@
     "babel-preset-react": "~6.24.1",
     "babelify": "~8.0.0",
     "browserify": "~14.5.0",
+    "envify": "^4.1.0",
     "prettier": "~1.10.2",
     "scssify": "~3.0.1",
     "serve": "^6.4.9",
-    "uglifyify": "~4.0.5",
+    "uglify-js": "^3.3.12",
+    "uglifyify": "^4.0.5",
     "watchify": "~3.9.0"
   },
   "dependencies": {
@@ -46,12 +48,15 @@
   },
   "browserify": {
     "transform": [
-      ["scssify", {
-        "autoInject": true,
-        "sass": {
-          "outputStyle": "compressed"
+      [
+        "scssify",
+        {
+          "autoInject": true,
+          "sass": {
+            "outputStyle": "compressed"
+          }
         }
-      }],
+      ],
       [
         "babelify",
         {
@@ -74,7 +79,8 @@
             "transform-class-properties"
           ]
         }
-      ]
+      ],
+      "uglifyify"
     ]
   }
 }
