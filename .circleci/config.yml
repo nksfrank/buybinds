@@ -30,27 +30,27 @@ jobs:
           root: .
           paths:
             - dist
-    build:
-      docker:
-        - image: docker:18.02.0-ce-git
+  build:
+    docker:
+      - image: docker:18.02.0-ce-git
 
-      working_directory: ~/repo
+    working_directory: ~/repo
 
-      steps:
-        - checkout
-        - setup_remote_docker:
-            docker_layer_caching: true
-        - attach_workspace:
-            at: .
-        - run: |
-            docker build --cache-from=app -t $DOCKER_USER/buybinds:$CIRCLE_TAG .
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - attach_workspace:
+          at: .
+      - run: |
+          docker build --cache-from=app -t $DOCKER_USER/buybinds:$CIRCLE_TAG .
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
   workflows:
     version: 2
       bundle_and_build:
         jobs:
-          - bundle
+          - bundle:
               filters:
                 branches:
                   only: master
