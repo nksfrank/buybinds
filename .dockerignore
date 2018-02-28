@@ -4,4 +4,5 @@ Dockerfile
 docker-compose.yml
 *.md
 .gitignore
+.gitkeep
 node_modules

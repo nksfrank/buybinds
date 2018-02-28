@@ -57,6 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
-build
 .idea
 dist/js/*
+!dist/js/.gitkeep
