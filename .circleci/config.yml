@@ -1,0 +1,66 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  bundle:
+    docker:
+      - image: circleci/node:9.6
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm bundle
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+    build:
+      docker:
+        - image: docker:18.02.0-ce-git
+
+      working_directory: ~/repo
+
+      steps:
+        - checkout
+        - setup_remote_docker:
+            docker_layer_caching: true
+        - attach_workspace:
+            at: .
+        - run: |
+            docker build --cache-from=app -t $DOCKER_USER/buybinds:$CIRCLE_TAG .
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
+  workflows:
+    version: 2
+      bundle_and_build:
+        jobs:
+          - bundle
+              filters:
+                branches:
+                  only: master
+                tags:
+                  only: /^v.*/
+          - build:
+              requires:
+                - bundle
+              filters:
+                branches:
+                  only: master
+                tags:
+                  only: /^v.*/
