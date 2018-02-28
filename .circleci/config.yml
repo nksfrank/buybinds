@@ -50,8 +50,8 @@ jobs:
       - run:
           name: Build and Deploy image to hub
           command: |
-            echo $CIRCLE_TAG
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            echo "$CIRCLE_TAG"
+            docker login -u $DOCKER_USER --password-stdin $DOCKER_PASS
             docker build -t $DOCKER_USER/buybinds:$CIRCLE_TAG .
             docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
 
@@ -62,7 +62,7 @@ workflows:
       - bundle:
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^v.*/
       - build:
@@ -70,6 +70,6 @@ workflows:
             - bundle
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^v.*/
