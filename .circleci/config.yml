@@ -61,7 +61,7 @@ workflows:
       - bundle:
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^v.*/
       - build:
@@ -69,6 +69,6 @@ workflows:
             - bundle
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^v.*/
