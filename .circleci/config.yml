@@ -18,18 +18,23 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: Install packages
+          command: npm install
 
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - "node_modules"
 
-      - run: npm run bundle
+      - run:
+          name: Bundle project
+          command: npm run bundle
+
       - persist_to_workspace:
           root: .
           paths:
-            - dist
+            - dist/js
   build:
     docker:
       - image: docker:18.02.0-ce-git
@@ -42,10 +47,14 @@ jobs:
           docker_layer_caching: true
       - attach_workspace:
           at: .
-      - run: |
-          docker build --cache-from=app -t $DOCKER_USER/buybinds:$CIRCLE_TAG .
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
+      - run:
+          name: Build and Deploy image to hub
+          command: |
+            echo $CIRCLE_TAG
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker build -t $DOCKER_USER/buybinds:$CIRCLE_TAG .
+            docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
+
 workflows:
   version: 2
   bundle_and_build:
