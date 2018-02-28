@@ -15,15 +15,15 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
       - run: npm install
 
       - save_cache:
-          paths:
-            - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - "node_modules"
 
       - run: npm bundle
       - persist_to_workspace:
@@ -46,21 +46,21 @@ jobs:
           docker build --cache-from=app -t $DOCKER_USER/buybinds:$CIRCLE_TAG .
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
-  workflows:
-    version: 2
-    bundle_and_build:
-      jobs:
-        - bundle:
-            filters:
-              branches:
-                only: master
-              tags:
-                only: /^v.*/
-        - build:
-            requires:
-              - bundle
-            filters:
-              branches:
-                only: master
-              tags:
-                only: /^v.*/
+workflows:
+  version: 2
+  bundle_and_build:
+    jobs:
+      - bundle:
+          filters:
+            branches:
+              only: master
+            tags:
+              only: /^v.*/
+      - build:
+          requires:
+            - bundle
+          filters:
+            branches:
+              only: master
+            tags:
+              only: /^v.*/
