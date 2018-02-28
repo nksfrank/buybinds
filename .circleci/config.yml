@@ -25,7 +25,7 @@ jobs:
           paths:
             - "node_modules"
 
-      - run: npm bundle
+      - run: npm run bundle
       - persist_to_workspace:
           root: .
           paths:
