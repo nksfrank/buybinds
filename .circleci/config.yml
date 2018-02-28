@@ -48,19 +48,19 @@ jobs:
           docker push $DOCKER_USER/buybinds:$CIRCLE_TAG
   workflows:
     version: 2
-      bundle_and_build:
-        jobs:
-          - bundle:
-              filters:
-                branches:
-                  only: master
-                tags:
-                  only: /^v.*/
-          - build:
-              requires:
-                - bundle
-              filters:
-                branches:
-                  only: master
-                tags:
-                  only: /^v.*/
+    bundle_and_build:
+      jobs:
+        - bundle:
+            filters:
+              branches:
+                only: master
+              tags:
+                only: /^v.*/
+        - build:
+            requires:
+              - bundle
+            filters:
+              branches:
+                only: master
+              tags:
+                only: /^v.*/
