@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from './section';
-import './header.scss';
+import './header.css';
 
 export const Header = ({}) => (
   <Section>

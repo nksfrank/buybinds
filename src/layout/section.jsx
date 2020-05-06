@@ -1,5 +1,5 @@
 import React from 'react';
-import './section.scss';
+import './section.css';
 
 export const Section = ({ className, children }) => (
   <div className={`section ${className || ''}`}>{children}</div>

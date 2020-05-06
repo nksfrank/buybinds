@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from './section';
-import './footer.scss';
+import './footer.css';
 
 export const Footer = ({}) => (
   <Section>
@@ -13,7 +13,7 @@ export const Footer = ({}) => (
         </a>
       </div>
       <a href="https://github.com/nksfrank/buybinds">
-        <img src="/github.png" height="20" width="20" />
+        <img src="/img/github.png" height="20" width="20" />
       </a>
     </footer>
   </Section>

@@ -18,9 +18,9 @@ const copyToClipboard = () => {
   }
 };
 const isDisabled = binds =>
-  !Object.keys(binds).some(key => binds[key].length > 0);
-const toString = binds => {
-  return Object.keys(binds)
+  !Object.keys(binds)
+  .some(key => binds[key].length > 0);
+const toString = binds => Object.keys(binds)
     .filter(key => binds[key].length > 0)
     .map(
       key =>
@@ -30,7 +30,6 @@ const toString = binds => {
           .trim()}"`
     )
     .join('\r\n');
-};
 export const Bindings = ({ binds, selectedKey }) => (
   <div className="bindings">
     <div className="header">
@@ -43,6 +42,6 @@ export const Bindings = ({ binds, selectedKey }) => (
         Copy
       </button>
     </div>
-    <textarea value={toString(binds)} ref={refTextArea} />
+    <textarea readOnly value={toString(binds)} ref={refTextArea} />
   </div>
 );

@@ -1,12 +1,11 @@
 {
   "name": "buybinds",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "CS GO buy binds keyboard mapper",
-  "main": "src/index.js",
+  "main": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "watchify --poll=25 -d src/index.jsx -o dist/js/bundle.js --extension=.jsx",
-    "bundle": "browserify -g [ envify --NODE_ENV production ] src/index.jsx --extension=.jsx | uglifyjs --compress --mangle > dist/js/bundle.js ",
+    "dev": "parcel ./src/index.html",
+    "bundle": "parcel build src/index.html",
     "start": "serve dist/"
   },
   "repository": {
@@ -28,59 +27,12 @@
   },
   "homepage": "https://github.com/nksfrank/buybinds#readme",
   "devDependencies": {
-    "babel-core": "~6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "~1.6.1",
-    "babel-preset-react": "~6.24.1",
-    "babelify": "~8.0.0",
-    "browserify": "~14.5.0",
-    "envify": "^4.1.0",
-    "prettier": "~1.10.2",
-    "scssify": "~3.0.1",
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
-    "uglify-js": "^3.3.12",
-    "uglifyify": "^4.0.5",
-    "watchify": "~3.9.0"
+    "prettier": "2.0.5",
+    "parcel-bundler": "1.12.4"
   },
   "dependencies": {
-    "serve": "6.4.9"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "scssify",
-        {
-          "autoInject": true,
-          "sass": {
-            "outputStyle": "compressed"
-          }
-        }
-      ],
-      [
-        "babelify",
-        {
-          "presets": [
-            [
-              "env",
-              {
-                "targets": {
-                  "browsers": [
-                    "last 2 versions",
-                    "safari >= 9"
-                  ]
-                },
-                "useBuiltIns": true
-              }
-            ],
-            "react"
-          ],
-          "plugins": [
-            "transform-class-properties"
-          ]
-        }
-      ],
-      "uglifyify"
-    ]
+    "serve": "11.3.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   }
 }
