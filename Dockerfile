@@ -1,15 +1,23 @@
-FROM node:9-alpine as builder
+FROM node:14.1-stretch as builder
 
-RUN addgroup -g 997 -S buybinds && adduser -S -g buybinds buybinds
-ARG DIR=/src/app
-
-COPY package*.json $DIR/
-RUN chown -R buybinds:buybinds /src/*
-
-USER buybinds:buybinds
+ARG DIR=/usr/app
 WORKDIR $DIR
-RUN npm install --production
+RUN chown -R node:node $DIR
+USER node:node
+COPY package*.json $DIR/
+RUN npm ci --silent
 
-COPY dist $DIR/dist
+COPY --chown=node:node src src/
+ENV NODE_ENV production
+RUN npm run build
 
+FROM node:14.1-stretch-slim
+ARG DIR=/usr/app
+WORKDIR $DIR
+RUN chown -R node:node $DIR
+USER node:node
+COPY --from=builder $DIR/package*.json ./
+COPY --from=builder $DIR/dist/ ./dist/
+RUN npm ci --production
+EXPOSE 5000
 CMD npm start
