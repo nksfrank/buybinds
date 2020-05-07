@@ -11,7 +11,7 @@ COPY --chown=node:node src src/
 ENV NODE_ENV production
 RUN npm run build
 
-FROM node:14.1-stretch-slim
+FROM node:alpine
 ARG DIR=/usr/app
 WORKDIR $DIR
 RUN chown -R node:node $DIR
