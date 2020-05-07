@@ -1,6 +1,6 @@
 {
   "name": "buybinds",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "CS GO buy binds keyboard mapper",
   "main": "src/index.html",
   "scripts": {
