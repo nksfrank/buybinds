@@ -53,14 +53,14 @@
   border-radius: 0.4rem;
   font-size: 0.8rem;
   min-height: auto;
-  word-break: break-all;
+  word-break: keep-all;
 }
 .keyboard .key:hover,
 .keyboard .key:active,
 .keyboard .key.selected:hover,
 .keyboard .key.selected:active,
 .keyboard .key.selected {
-  background: #25a233;
+  background: #97b7d1;
   color: #fdfdfd;
   box-shadow: none;
 }
