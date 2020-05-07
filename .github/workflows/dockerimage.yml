@@ -14,15 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: azure/docker-login@v1
-      with:
-        login-server: docker.io
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
     - name: get-npm-version
       id: package-version
       uses: martinbeentjes/npm-get-version-action@master
-    - name: Build the Docker image
-      run: docker build -t niklasfrank/buybinds:${{ steps.package-version.outputs.current-version }} .
-    - name: Push
-      run: docker push niklasfrank/buybinds:${{ steps.package-version.outputs.current-version }}
+    - uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: docker.io
+        tags: ${{ steps.package-version.outputs.current-version }}
