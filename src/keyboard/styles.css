@@ -27,18 +27,17 @@
     "l_shift z x c v b n m colon dot slash r_shift r_shift r_shift"
     "l_ctrl . alt space space space space space space altgr . . . r_ctrl"
     "ins home pgup . . . . . . . numlock kp_slash kp_multiply kp_minus"
-    "del end pgdn . . . . . . . kp_home kp_uparrow kp_pgup kp_plus"
-    ". . . . . . . . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
-    ". uparrow . . . . . . . . kp_end kp_downarrow kp_pgdn kp_enter"
+    "del end pgdn . mouse1 MWHEELUP mouse2 . . . kp_home kp_uparrow kp_pgup kp_plus"
+    ". . . . mouse4 mouse3 . . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
+    ". uparrow . . mouse5 MWHEELDOWN . . . . kp_end kp_downarrow kp_pgdn kp_enter"
     "leftarrow downarrow rightarrow . . . . . . . kp_ins kp_ins kp_del kp_enter";
 }
-
 @media (min-width: 780px) {
   .keyboard {
     grid-template-columns: repeat(21, 1fr);
     grid-template-rows: repeat(6, 5rem);
     grid-template-areas:
-      "esc . f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 . print_screen scroll_lock break . . ."
+      "esc . f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 mouse1 mouse2 mouse3 MWHEELUP MWHEELDOWN mouse4 mouse5"
       "tilde _1 _2 _3 _4 _5 _6 _7 _8 _9 _0 minus equal backspace ins home pgup numlock kp_slash kp_multiply kp_minus"
       "tab q w e r t y u i o p obracket cbracket backslash del end pgdn kp_home kp_uparrow kp_pgup kp_plus"
       "capslock a s d f g h j k l semicolon tick enter enter . . . kp_leftarrow kp_5 kp_rightarrow kp_plus"
