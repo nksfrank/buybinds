@@ -11,8 +11,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    container:
+      image: node:14.1-stretch
 
     steps:
     - uses: actions/checkout@v2
+    - name: Docker login
+      run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nksfrank/buybinds:$(date +%s)
+      run: docker build -t ${{ secrets.DOCKER_USER }}/buybinds:${{ github.run_number }} .
+    - name: Push
+      run: docker push ${{ secrets.DOCKER_USER }}/buybinds:${{ github.run_number }}
