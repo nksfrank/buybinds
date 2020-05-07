@@ -8,8 +8,6 @@
   padding: 0.4rem;
   min-height: 2rem;
   user-select: none;
-  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
-    box-shadow 0.1s ease, background 0.1s ease;
 }
 .key.disabled {
   color: #fdfdfd;
