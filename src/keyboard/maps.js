@@ -109,7 +109,15 @@ const keys = [
   { id: 'kp_plus', value: '+' },
   { id: 'kp_enter', value: 'ENTER' },
   { id: 'kp_ins', value: '0' },
-  { id: 'kp_del', value: ',' }
+  { id: 'kp_del', value: ',' },
+
+  { id: 'mouse1', value: 'Mouse1'},
+  { id: 'mouse2', value: 'Mouse2'},
+  { id: 'mouse3', value: 'Mouse3'},
+  { id: 'mouse4', value: 'Mouse4'},
+  { id: 'mouse5', value: 'Mouse5'},
+  { id: 'MWHEELUP', value: 'Scroll up'},
+  { id: 'MWHEELDOWN', value: 'Scroll down'},
 ];
 
 export function mapKeys() {
