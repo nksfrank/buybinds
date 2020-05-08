@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 
 const isDisabled = (binds) =>
   !Object.keys(binds).some((key) => binds[key].length > 0);
@@ -28,7 +28,7 @@ export const Bindings = ({ binds, selectedKey }) => {
     } catch (err) {
       console.log("unable to copy");
     }
-  };
+  }
 
   return (
     <div className="bindings">
