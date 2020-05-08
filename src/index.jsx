@@ -72,6 +72,8 @@ const App = () => {
               isBound={isBoundBind(item)}
               onClick={() => onKeyBind(item)}
               disabled={!selectedKey.id}
+              appearance="secondary"
+              className="invert"
             />
           )}
         </Bind>

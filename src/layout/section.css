@@ -15,7 +15,7 @@
 .section.blue h1,
 .section.blue h2,
 .section.blue h3 {
-  color: #97b7d1;
+  color: var(--color-primary);
 }
 .section.white {
   background: white;
@@ -23,7 +23,7 @@
 .section.white h1,
 .section.black h2,
 .section.black h3 {
-  color: #97b7d1;
+  color: var(--color-primary);
 }
 @media (min-width: 480px) {
   .section.blue {

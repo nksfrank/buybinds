@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../button";
 
 export const Key = ({
   id,
@@ -6,17 +7,19 @@ export const Key = ({
   grid,
   disabled,
   isBound,
+  appearance = "primary",
   isSelected,
-  getKey,
   onClick,
+  className,
 }) => (
-  <button
-    className={`key ${id}${disabled ? " disabled" : ""}${
-      isBound ? " bound" : ""
-    }${isSelected ? " selected" : ""}`}
+  <Button
+    className={`${className || ""} ${id} ${isBound ? "bound" : ""}`}
+    disabled={disabled}
+    selected={isSelected}
+    appearance={appearance}
     onClick={() => !disabled && onClick()}
     style={{ gridArea: grid }}
   >
     {value}
-  </button>
+  </Button>
 );

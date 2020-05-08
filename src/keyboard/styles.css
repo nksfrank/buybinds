@@ -1,15 +1,4 @@
-.key {
-  cursor: pointer;
-  background: transparent;
-  color: white;
-  border: none;
-  box-shadow: 0 0 0 1px #999b9d inset;
-  margin: 0.1rem;
-  padding: 0.4rem;
-  min-height: 2rem;
-  user-select: none;
-}
-.key.disabled {
+.keyboard button.disabled {
   color: #fdfdfd;
   opacity: 0.2;
 }
@@ -18,6 +7,7 @@
   display: grid;
   grid-template-columns: repeat(14, 1fr);
   grid-template-rows: repeat(11, 5rem);
+  gap: 1px;
   grid-auto-flow: row;
   grid-template-areas:
     "esc . f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12"
@@ -46,25 +36,21 @@
   }
 }
 
-.keyboard .key {
-  background: white;
-  color: #1e2222;
-  border-radius: 0.4rem;
+.keyboard button {
   font-size: 0.8rem;
   min-height: auto;
   word-break: keep-all;
 }
-.keyboard .key:hover,
-.keyboard .key:active,
-.keyboard .key.selected:hover,
-.keyboard .key.selected:active,
-.keyboard .key.selected {
-  background: #97b7d1;
-  color: #fdfdfd;
-  box-shadow: none;
+.keyboard button.primary.selected:hover,
+.keyboard button.primary.selected:active,
+.keyboard button.primary.selected {
+  background: var(--color-primary);
+  color: var(--font-color-secondary);
+  border: none;
 }
 
-.keyboard .key.bound {
-  background: #ff851b;
-  color: white;
+button.bound {
+  --button-background: var(--color-secondary);
+  --button-color: var(--font-color-secondary);
+  --button-border: 1px solid var(--color-secondary)
 }

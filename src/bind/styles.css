@@ -1,7 +1,7 @@
 .bindings .key,
 .equipment .key {
-  color: #ff851b;
-  box-shadow: 0 0 0 1px #ff851b inset;
+  color: var(--color-secondary);
+  box-shadow: 0 0 0 1px var(--color-secondary) inset;
 }
 .equipment .key.disabled {
   color: #fdfdfd;
@@ -9,7 +9,7 @@
 }
 .keyboard .key.bound,
 .equipment .key.bound {
-  background: #ff851b;
+  background: var(--color-secondary);
   color: white;
 }
 .bindings .key:hover,

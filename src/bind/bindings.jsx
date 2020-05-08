@@ -35,7 +35,7 @@ export const Bindings = ({ binds, selectedKey }) => {
       <div className="header">
         <h3>bindings {selectedKey.getKey && selectedKey.getKey()}</h3>
         <button
-          className={`key ${isDisabled(binds) ? "disabled" : ""}`}
+          className={`secondary ${isDisabled(binds) ? "disabled" : ""}`}
           onClick={copyToClipboard}
           disabled={isDisabled(binds)}
         >
