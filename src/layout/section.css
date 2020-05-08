@@ -1,6 +1,9 @@
 .section {
   display: grid;
-  grid-template-columns: [full-start] minmax(0.5rem, 1fr) [main-start] minmax(0, 1000px) [main-end] minmax(0.5rem, 1fr) [full-end];
+  grid-template-columns: [full-start] minmax(0.5rem, 1fr) [main-start] minmax(
+      0,
+      1000px
+    ) [main-end] minmax(0.5rem, 1fr) [full-end];
   padding: 0.5rem 0;
 }
 .section > * {
@@ -9,14 +12,18 @@
 .section.blue {
   background: #171b1e;
 }
-.section.blue h1, .section.blue h2, .section.blue h3 {
+.section.blue h1,
+.section.blue h2,
+.section.blue h3 {
   color: #97b7d1;
 }
 .section.white {
   background: white;
 }
-.section.white h1, .section.black h2, .section.black h3 {
-  color: #97b7d1
+.section.white h1,
+.section.black h2,
+.section.black h3 {
+  color: #97b7d1;
 }
 @media (min-width: 480px) {
   .section.blue {

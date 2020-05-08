@@ -21,7 +21,8 @@
   background: #ff7701;
 }
 
-.equipment .key { min-height: 3rem;
+.equipment .key {
+  min-height: 3rem;
 }
 .binds {
   padding-top: 0.85rem;
@@ -31,14 +32,14 @@
   grid-auto-flow: row;
   grid-gap: 0.5rem;
   grid-template-areas:
-          "bindings"
-          "rifle"
-          "sniper"
-          "pistols"
-          "smg"
-          "shotgun"
-          "equipment"
-          "grenade"
+    "bindings"
+    "rifle"
+    "sniper"
+    "pistols"
+    "smg"
+    "shotgun"
+    "equipment"
+    "grenade";
 }
 
 .bindings {
@@ -46,7 +47,7 @@
   flex-direction: column;
   padding: 0.5rem;
   border-radius: 0.25rem;
-  box-shadow: 0 0 0 1px rgba(34,36,38,.15) inset;
+  box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
   grid-area: bindings;
 }
 .bindings h3 {
@@ -76,18 +77,18 @@
   .binds {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-            "rifle sniper"
-            "pistols smg"
-            "shotgun equipment"
-            "grenade bindings"
+      "rifle sniper"
+      "pistols smg"
+      "shotgun equipment"
+      "grenade bindings";
   }
 }
 @media (min-width: 780px) {
   .binds {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-            "rifle sniper equipment"
-            "pistols smg bindings"
-            "shotgun  grenade bindings"
+      "rifle sniper equipment"
+      "pistols smg bindings"
+      "shotgun  grenade bindings";
   }
 }
