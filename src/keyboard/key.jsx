@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const Key = ({
   id,
@@ -8,12 +8,12 @@ export const Key = ({
   isBound,
   isSelected,
   getKey,
-  onClick
+  onClick,
 }) => (
   <button
-    className={`key ${id}${disabled ? ' disabled' : ''}${
-      isBound ? ' bound' : ''
-    }${isSelected ? ' selected' : ''}`}
+    className={`key ${id}${disabled ? " disabled" : ""}${
+      isBound ? " bound" : ""
+    }${isSelected ? " selected" : ""}`}
     onClick={() => !disabled && onClick()}
     style={{ gridArea: grid }}
   >
