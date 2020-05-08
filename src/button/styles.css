@@ -35,7 +35,11 @@ button.secondary {
   --button-color: var(--font-color-secondary);
   --button-background: var(--color-secondary);
   --button-border: var(--color-secondary);
+  --button-hover-background: var(--color-secondary);
+  --button-hover-color: var(--font-color-secondary);
+  --button-hover-border: var(--color-secondary);
 }
+
 button.invert.secondary {
   --button-color: var(--color-secondary);
   --button-background: transparent;
