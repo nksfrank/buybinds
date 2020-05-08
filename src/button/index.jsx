@@ -11,9 +11,14 @@ export const Button = ({
   ...props
 }) => (
   <button
-    className={`${className || ""} ${disabled ? " disabled" : ""} ${
-      appearance || ""
-    } ${selected ? " selected" : ""}`}
+    className={[
+      className,
+      disabled && "disabled",
+      appearance,
+      selected && "selected",
+    ]
+      .filter((a) => !!a)
+      .join(" ")}
     {...props}
   >
     {children}

@@ -13,7 +13,7 @@ export const Key = ({
   className,
 }) => (
   <Button
-    className={`${className || ""} ${id} ${isBound ? "bound" : ""}`}
+    className={[className, id, isBound && "bound"].filter((a) => !!a).join(" ")}
     disabled={disabled}
     selected={isSelected}
     appearance={appearance}
