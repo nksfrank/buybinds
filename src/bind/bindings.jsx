@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import {Button} from "../button";
 
 const isDisabled = (binds) =>
   !Object.keys(binds).some((key) => binds[key].length > 0);
@@ -34,13 +35,7 @@ export const Bindings = ({ binds, selectedKey }) => {
     <div className="bindings">
       <div className="header">
         <h3>bindings {selectedKey.getKey && selectedKey.getKey()}</h3>
-        <button
-          className={`secondary ${isDisabled(binds) ? "disabled" : ""}`}
-          onClick={copyToClipboard}
-          disabled={isDisabled(binds)}
-        >
-          Copy
-        </button>
+        <Button disabled={isDisabled(binds)} onClick={copyToClipboard} appearance="secondary">Copy</Button>
       </div>
       <textarea readOnly value={toString(binds)} ref={textArea} />
     </div>
