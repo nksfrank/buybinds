@@ -33,7 +33,7 @@ export const Bindings = ({ binds, selectedKey }) => {
   return (
     <div className="bindings">
       <div className="header">
-        <label for="bindings">
+        <label htmlFor="bindings">
           <h3>bindings {selectedKey.getKey && selectedKey.getKey()}</h3>
         </label>
         <button
