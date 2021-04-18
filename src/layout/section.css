@@ -1,9 +1,8 @@
 .section {
   display: grid;
-  grid-template-columns: [full-start] minmax(0.5rem, 1fr) [main-start] minmax(
-      0,
-      1000px
-    ) [main-end] minmax(0.5rem, 1fr) [full-end];
+  grid-template-columns:
+    [full-start] minmax(0.5rem, 1fr) [main-start] minmax(0, 1000px)
+    [main-end] minmax(0.5rem, 1fr) [full-end];
   padding: 0.5rem 0;
 }
 .section > * {

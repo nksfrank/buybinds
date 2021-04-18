@@ -1,18 +1,21 @@
-import React from "react";
-import { Section } from "./section";
-import "./footer.css";
+import { Section } from './section';
+import './footer.css';
 
 export const Footer = ({}) => (
   <Section>
     <footer className="footer">
       <div>
         <h3>Counter-Strike: buy binds</h3>
-        <a href="http://nikz.se">nikz.se</a>&nbsp;&ndash;&nbsp;
-        <a href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md">
+        <a href="https://nikz.se">nikz.se</a>&nbsp;&ndash;&nbsp;
+        <a
+          href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md"
+          target="_blank"
+          rel="noopener"
+        >
           Apache License
         </a>
       </div>
-      <a href="https://github.com/nksfrank/buybinds">
+      <a href="https://github.com/nksfrank/buybinds" target="_blank" rel="noopener" aria-label="github repository">
         <svg
           height="20"
           className="github"
@@ -20,7 +23,6 @@ export const Footer = ({}) => (
           viewBox="0 0 16 16"
           version="1.1"
           width="20"
-          aria-hidden="true"
         >
           <path
             fillRule="evenodd"
