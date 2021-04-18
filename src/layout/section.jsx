@@ -1,6 +1,6 @@
-import React from "react";
-import "./section.css";
+import React from 'react';
+import './section.css';
 
 export const Section = ({ className, children }) => (
-  <div className={`section ${className || ""}`}>{children}</div>
+  <div className={`section ${className || ''}`}>{children}</div>
 );

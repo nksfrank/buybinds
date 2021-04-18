@@ -1,6 +1,6 @@
-import React from "react";
-import { Section } from "./section";
-import "./footer.css";
+import React from 'react';
+import { Section } from './section';
+import './footer.css';
 
 export const Footer = ({}) => (
   <Section>
@@ -8,9 +8,7 @@ export const Footer = ({}) => (
       <div>
         <h3>Counter-Strike: buy binds</h3>
         <a href="http://nikz.se">nikz.se</a>&nbsp;&ndash;&nbsp;
-        <a href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md">
-          Apache License
-        </a>
+        <a href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md">Apache License</a>
       </div>
       <a href="https://github.com/nksfrank/buybinds">
         <svg
