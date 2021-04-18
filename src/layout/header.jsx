@@ -1,6 +1,5 @@
-import React from "react";
-import { Section } from "./section";
-import "./header.css";
+import { Section } from './section';
+import './header.css';
 
 export const Header = ({}) => (
   <Section>

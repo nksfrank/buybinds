@@ -1,51 +1,39 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { Keyboard, Key } from "./keyboard/index";
-import { Bind } from "./bind/index";
-import { Section, Header, Footer } from "./layout/index";
-import "./global.css";
+import { Keyboard, Key } from './keyboard/index';
+import { Bind } from './bind/index';
+import { Section, Header, Footer } from './layout/index';
+import './global.css';
 
 const App = () => {
-  const [binds, setBinds] = useState({});
-  const [selectedKey, setSelectedKey] = useState({});
+  const [binds, setBinds] = React.useState({});
+  const [selectedKey, setSelectedKey] = React.useState({});
 
   const onKeySelect = (key) => {
-    setSelectedKey(
-      selectedKey.getKey && selectedKey.getKey() === key.getKey() ? {} : key
-    );
+    setSelectedKey(selectedKey.getKey && selectedKey.getKey() === key.getKey() ? {} : key);
   };
 
   const onKeyBind = ({ bind }) => {
     if ((binds[selectedKey.getKey()] || []).find((item) => item === bind)) {
       setBinds(
         Object.assign({}, binds, {
-          [selectedKey.getKey()]: binds[selectedKey.getKey()].filter(
-            (item) => item !== bind
-          ),
+          [selectedKey.getKey()]: binds[selectedKey.getKey()].filter((item) => item !== bind),
         })
       );
       return;
     }
     setBinds(
       Object.assign({}, binds, {
-        [selectedKey.getKey()]: (binds[selectedKey.getKey()] || []).concat([
-          bind,
-        ]),
+        [selectedKey.getKey()]: (binds[selectedKey.getKey()] || []).concat([bind]),
       })
     );
   };
 
-  const isSelected = ({ getKey }) =>
-    selectedKey.getKey && selectedKey.getKey() === getKey();
+  const isSelected = ({ getKey }) => selectedKey.getKey && selectedKey.getKey() === getKey();
 
-  const isBoundKey = ({ getKey }) =>
-    binds[getKey()] && binds[getKey()].length > 0;
+  const isBoundKey = ({ getKey }) => binds[getKey()] && binds[getKey()].length > 0;
 
   const isBoundBind = ({ bind }) => {
     if (!binds || !selectedKey || !bind) return false;
-    return ((selectedKey.getKey && binds[selectedKey.getKey()]) || []).some(
-      (b) => b === bind
-    );
+    return ((selectedKey.getKey && binds[selectedKey.getKey()]) || []).some((b) => b === bind);
   };
   return (
     <div className="main">
@@ -81,4 +69,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));

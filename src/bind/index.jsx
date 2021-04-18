@@ -1,7 +1,6 @@
-import React from "react";
-import { guns } from "./guns";
-import { Bindings } from "./bindings";
-import "./styles.css";
+import { guns } from './guns';
+import { Bindings } from './bindings';
+import './styles.css';
 
 export const Bind = ({ binds, selectedKey, children }) => (
   <div className="binds">
