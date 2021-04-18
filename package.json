@@ -2,7 +2,7 @@
   "name": "buybinds",
   "version": "3.1.2",
   "description": "CS GO buy binds keyboard mapper",
-  "main": "public/index.html",
+  "main": "dist/index.html",
   "targets": {
     "main": {
       "sourceMap": false,
