@@ -58,6 +58,5 @@ typings/
 .env
 
 .idea
-.cache
 .parcel-cache
-dist
+public
