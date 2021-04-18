@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CD
+name: CI/CD
 
 # Controls when the action will run. 
 on:
@@ -26,11 +26,25 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v2 🚚
+      - uses: actions/setup-node@v2
         with:
-          name: pages
-          path: public
-      
+          node-version: '15'
+          
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies 🔥
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+        
+      - name: Build Artifact 📦
+        run: npm run build
+        
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
