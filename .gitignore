@@ -59,4 +59,5 @@ typings/
 
 .idea
 .cache
+.parcel-cache
 dist
