@@ -23,7 +23,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  install ⚙:
+  install:
     runs-on: ubuntu-latest
 
     steps:
@@ -40,30 +40,30 @@ jobs:
           path: ./node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
 
-      - name: Install dependencies 🔥
+      - name: Install dependencies ⚙
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
-  lint 👕:
-    needs: [install ⚙]
+  lint:
+    needs: [install]
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build Artifact 🧹
+      - name: Run linter 👕
         run: npm run lint
-  build 📦:
-    needs: [install ⚙, lint 👕]
+  build:
+    needs: [install, lint]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Build Artifact 📦
+      - name: Build 📦
         run: npm run build
 
-  deploy 🚀:
-    needs: [install ⚙, lint 👕, build 📦]
+  deploy:
+    needs: [install, lint, build]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
