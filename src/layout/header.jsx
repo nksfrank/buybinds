@@ -1,4 +1,3 @@
-import React from 'react';
 import { Section } from './section';
 import './header.css';
 

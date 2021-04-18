@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import { Keyboard, Key } from './keyboard/index';
 import { Bind } from './bind/index';
 import { Section, Header, Footer } from './layout/index';
 import './global.css';
 
 const App = () => {
-  const [binds, setBinds] = useState({});
-  const [selectedKey, setSelectedKey] = useState({});
+  const [binds, setBinds] = React.useState({});
+  const [selectedKey, setSelectedKey] = React.useState({});
 
   const onKeySelect = (key) => {
     setSelectedKey(selectedKey.getKey && selectedKey.getKey() === key.getKey() ? {} : key);

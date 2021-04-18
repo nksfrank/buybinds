@@ -1,4 +1,3 @@
-import React from 'react';
 import { mapKeys } from './maps';
 import './styles.css';
 export * from './key';

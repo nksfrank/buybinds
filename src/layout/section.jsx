@@ -1,6 +1,6 @@
-import React from 'react';
+import cn from 'clsx';
 import './section.css';
 
 export const Section = ({ className, children }) => (
-  <div className={`section ${className || ''}`}>{children}</div>
+  <div className={cn('section', className)}>{children}</div>
 );

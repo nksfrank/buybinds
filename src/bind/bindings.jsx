@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import cn from "clsx";
 
 const isDisabled = (binds) =>
   !Object.keys(binds).some((key) => binds[key].length > 0);
@@ -14,7 +14,7 @@ const toString = (binds) =>
     )
     .join("\r\n");
 export const Bindings = ({ binds, selectedKey }) => {
-  const textArea = useRef(null);
+  const textArea = React.useRef(null);
 
   function copyToClipboard() {
     textArea.current.select();
@@ -33,16 +33,18 @@ export const Bindings = ({ binds, selectedKey }) => {
   return (
     <div className="bindings">
       <div className="header">
-        <h3>bindings {selectedKey.getKey && selectedKey.getKey()}</h3>
+        <label for="bindings">
+          <h3>bindings {selectedKey.getKey && selectedKey.getKey()}</h3>
+        </label>
         <button
-          className={`key ${isDisabled(binds) ? "disabled" : ""}`}
+          className={cn("key", {"disabled": isDisabled(binds)})}
           onClick={copyToClipboard}
           disabled={isDisabled(binds)}
         >
           Copy
         </button>
       </div>
-      <textarea readOnly value={toString(binds)} ref={textArea} />
+        <textarea id="bindings" readOnly value={toString(binds)} ref={textArea} />
     </div>
   );
 };

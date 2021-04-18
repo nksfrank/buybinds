@@ -2,7 +2,17 @@
   "name": "buybinds",
   "version": "3.1.2",
   "description": "CS GO buy binds keyboard mapper",
-  "main": "src/index.html",
+  "main": "public/index.html",
+  "targets": {
+    "main": {
+      "sourceMap": false,
+      "optimize": true,
+      "includeNodeModules": {
+        "react": false,
+        "react-dom": false
+      }
+    }
+  },
   "scripts": {
     "lint": "npx eslint .",
     "build": "parcel build ./src/index.html",
@@ -27,6 +37,8 @@
   },
   "homepage": "https://github.com/nksfrank/buybinds#readme",
   "devDependencies": {
+    "@types/react": "~17.0.3",
+    "@types/react-dom": "~17.0.3",
     "eslint": "7.24.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-config-react": "^1.1.7",
@@ -36,8 +48,7 @@
     "pretty-quick": "^3.1.0"
   },
   "dependencies": {
-    "react": "~17.0.2",
-    "react-dom": "~17.0.2"
+    "clsx": "1.1.1"
   },
   "husky": {
     "hooks": {
@@ -49,5 +60,11 @@
     ">1%",
     "IE 10",
     "not dead"
-  ]
+  ],
+  "parcel": {
+    "alias": {
+      "react": "React",
+      "react-dom": "ReactDOM"
+    }
+  }
 }
