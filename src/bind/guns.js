@@ -186,11 +186,3 @@ export const guns = {
     },
   ],
 };
-
-export function mapGuns() {
-  return guns.map(({ value, bind }) => ({
-    id,
-    value,
-    bind,
-  }));
-}

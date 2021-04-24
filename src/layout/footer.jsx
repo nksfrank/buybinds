@@ -1,7 +1,7 @@
 import { Section } from './section';
 import './footer.css';
 
-export const Footer = ({}) => (
+export const Footer = () => (
   <Section>
     <footer className="footer">
       <div>
@@ -10,12 +10,12 @@ export const Footer = ({}) => (
         <a
           href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md"
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
         >
           Apache License
         </a>
       </div>
-      <a href="https://github.com/nksfrank/buybinds" target="_blank" rel="noopener" aria-label="github repository">
+      <a href="https://github.com/nksfrank/buybinds" target="_blank" rel="noreferrer" aria-label="github repository">
         <svg
           height="20"
           className="github"
