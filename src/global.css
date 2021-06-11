@@ -31,3 +31,12 @@ a {
   color: #97b7d1;
   text-decoration: none;
 }
+
+.text-center {
+  text-align: center;
+}
+@media (min-width: 780px) {
+  .text-center {
+    text-align: start;
+  }
+}
