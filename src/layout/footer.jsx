@@ -3,10 +3,13 @@ import './footer.css';
 
 export const Footer = () => (
   <Section>
-    <footer className="footer">
+    <footer>
       <div>
         <h3>Counter-Strike: buy binds</h3>
-        <a href="https://nikz.se">nikz.se</a>&nbsp;&ndash;&nbsp;
+        <a href="https://nikz.se" target="_blank" rel="noreferrer">
+          nikz.se
+        </a>
+        &nbsp;&ndash;&nbsp;
         <a
           href="https://github.com/nksfrank/buybinds/blob/master/LICENSE.md"
           target="_blank"
@@ -15,7 +18,12 @@ export const Footer = () => (
           Apache License
         </a>
       </div>
-      <a href="https://github.com/nksfrank/buybinds" target="_blank" rel="noreferrer" aria-label="github repository">
+      <a
+        href="https://github.com/nksfrank/buybinds"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="github repository"
+      >
         <svg
           height="20"
           className="github"

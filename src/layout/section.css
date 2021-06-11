@@ -16,14 +16,17 @@
 .section.blue h3 {
   color: #97b7d1;
 }
+.white,
 .section.white {
   background: white;
 }
+
 .section.white h1,
 .section.black h2,
 .section.black h3 {
   color: #97b7d1;
 }
+
 @media (min-width: 480px) {
   .section.blue {
     padding: 2rem 0;
@@ -32,5 +35,26 @@
 @media (min-width: 780px) {
   .section.blue {
     padding: 5rem 0;
+  }
+}
+
+.flex {
+  display: flex;
+}
+.middle {
+  align-items: center;
+}
+.h100 {
+  height: 100vw;
+}
+
+@media (max-width: 480px) {
+  .sm-hide {
+    display: none !important;
+  }
+}
+@media (min-width: 481px) {
+  .sm-show {
+    display: none !important;
   }
 }
